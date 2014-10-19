@@ -1,0 +1,441 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		95501D0219F29BEF002AEAC4 /* liblog4cpp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95501D0119F29BEF002AEAC4 /* liblog4cpp.a */; };
+		95501D3A19F29D7C002AEAC4 /* Arc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95501D0919F29D7C002AEAC4 /* Arc.cpp */; };
+		95501D3B19F29D7C002AEAC4 /* AzimuthalAngle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95501D0B19F29D7C002AEAC4 /* AzimuthalAngle.cpp */; };
+		95501D3C19F29D7C002AEAC4 /* CellType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95501D0D19F29D7C002AEAC4 /* CellType.cpp */; };
+		95501D3D19F29D7C002AEAC4 /* CellTypeSurface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95501D0F19F29D7C002AEAC4 /* CellTypeSurface.cpp */; };
+		95501D3E19F29D7C002AEAC4 /* Circle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95501D1119F29D7C002AEAC4 /* Circle.cpp */; };
+		95501D3F19F29D7C002AEAC4 /* FuelCellType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95501D1319F29D7C002AEAC4 /* FuelCellType.cpp */; };
+		95501D4019F29D7C002AEAC4 /* Line.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95501D1519F29D7C002AEAC4 /* Line.cpp */; };
+		95501D4119F29D7C002AEAC4 /* Point.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95501D1719F29D7C002AEAC4 /* Point.cpp */; };
+		95501D4219F29D7C002AEAC4 /* RayInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95501D1919F29D7C002AEAC4 /* RayInfo.cpp */; };
+		95501D4319F29D7C002AEAC4 /* RegionType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95501D1B19F29D7C002AEAC4 /* RegionType.cpp */; };
+		95501D4419F29D7C002AEAC4 /* Segment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95501D1D19F29D7C002AEAC4 /* Segment.cpp */; };
+		95501D4519F29D7C002AEAC4 /* Shape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95501D1F19F29D7C002AEAC4 /* Shape.cpp */; };
+		95501D4619F29D7C002AEAC4 /* SubRegionType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95501D2119F29D7C002AEAC4 /* SubRegionType.cpp */; };
+		95501D4719F29D7C002AEAC4 /* SurfaceRay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95501D2319F29D7C002AEAC4 /* SurfaceRay.cpp */; };
+		95501D4819F29D7C002AEAC4 /* SurfaceRayPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95501D2519F29D7C002AEAC4 /* SurfaceRayPoint.cpp */; };
+		95501D4919F29D7C002AEAC4 /* QuadratureSet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95501D2819F29D7C002AEAC4 /* QuadratureSet.cpp */; };
+		95501D4A19F29D7C002AEAC4 /* Assembly.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95501D2B19F29D7C002AEAC4 /* Assembly.cpp */; };
+		95501D4B19F29D7C002AEAC4 /* Cell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95501D2D19F29D7C002AEAC4 /* Cell.cpp */; };
+		95501D4C19F29D7C002AEAC4 /* CellSurface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95501D2F19F29D7C002AEAC4 /* CellSurface.cpp */; };
+		95501D4D19F29D7C002AEAC4 /* Region.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95501D3119F29D7C002AEAC4 /* Region.cpp */; };
+		95501D4E19F29D7C002AEAC4 /* SubRegion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95501D3319F29D7C002AEAC4 /* SubRegion.cpp */; };
+		95501D4F19F29D7C002AEAC4 /* CrossSection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95501D3619F29D7C002AEAC4 /* CrossSection.cpp */; };
+		95501D5019F29D7C002AEAC4 /* XSLibrary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95501D3819F29D7C002AEAC4 /* XSLibrary.cpp */; };
+		95501D5119F29E3B002AEAC4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95501CEF19F293D1002AEAC4 /* main.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		95501CEA19F293D1002AEAC4 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		95501CEC19F293D1002AEAC4 /* raysn */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = raysn; sourceTree = BUILT_PRODUCTS_DIR; };
+		95501CEF19F293D1002AEAC4 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = "<group>"; };
+		95501CFA19F29567002AEAC4 /* pch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = pch.h; path = src/pch.h; sourceTree = "<group>"; };
+		95501CFF19F29B8D002AEAC4 /* liblog4cpp.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = liblog4cpp.5.dylib; path = /usr/local/lib/liblog4cpp.5.dylib; sourceTree = "<absolute>"; };
+		95501D0119F29BEF002AEAC4 /* liblog4cpp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblog4cpp.a; path = /usr/local/lib/liblog4cpp.a; sourceTree = "<absolute>"; };
+		95501D0919F29D7C002AEAC4 /* Arc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Arc.cpp; sourceTree = "<group>"; };
+		95501D0A19F29D7C002AEAC4 /* Arc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Arc.h; sourceTree = "<group>"; };
+		95501D0B19F29D7C002AEAC4 /* AzimuthalAngle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AzimuthalAngle.cpp; sourceTree = "<group>"; };
+		95501D0C19F29D7C002AEAC4 /* AzimuthalAngle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AzimuthalAngle.h; sourceTree = "<group>"; };
+		95501D0D19F29D7C002AEAC4 /* CellType.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CellType.cpp; sourceTree = "<group>"; };
+		95501D0E19F29D7C002AEAC4 /* CellType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellType.h; sourceTree = "<group>"; };
+		95501D0F19F29D7C002AEAC4 /* CellTypeSurface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CellTypeSurface.cpp; sourceTree = "<group>"; };
+		95501D1019F29D7C002AEAC4 /* CellTypeSurface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellTypeSurface.h; sourceTree = "<group>"; };
+		95501D1119F29D7C002AEAC4 /* Circle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Circle.cpp; sourceTree = "<group>"; };
+		95501D1219F29D7C002AEAC4 /* Circle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Circle.h; sourceTree = "<group>"; };
+		95501D1319F29D7C002AEAC4 /* FuelCellType.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FuelCellType.cpp; sourceTree = "<group>"; };
+		95501D1419F29D7C002AEAC4 /* FuelCellType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FuelCellType.h; sourceTree = "<group>"; };
+		95501D1519F29D7C002AEAC4 /* Line.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Line.cpp; sourceTree = "<group>"; };
+		95501D1619F29D7C002AEAC4 /* Line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Line.h; sourceTree = "<group>"; };
+		95501D1719F29D7C002AEAC4 /* Point.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Point.cpp; sourceTree = "<group>"; };
+		95501D1819F29D7C002AEAC4 /* Point.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Point.h; sourceTree = "<group>"; };
+		95501D1919F29D7C002AEAC4 /* RayInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RayInfo.cpp; sourceTree = "<group>"; };
+		95501D1A19F29D7C002AEAC4 /* RayInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RayInfo.h; sourceTree = "<group>"; };
+		95501D1B19F29D7C002AEAC4 /* RegionType.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RegionType.cpp; sourceTree = "<group>"; };
+		95501D1C19F29D7C002AEAC4 /* RegionType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionType.h; sourceTree = "<group>"; };
+		95501D1D19F29D7C002AEAC4 /* Segment.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Segment.cpp; sourceTree = "<group>"; };
+		95501D1E19F29D7C002AEAC4 /* Segment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Segment.h; sourceTree = "<group>"; };
+		95501D1F19F29D7C002AEAC4 /* Shape.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shape.cpp; sourceTree = "<group>"; };
+		95501D2019F29D7C002AEAC4 /* Shape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shape.h; sourceTree = "<group>"; };
+		95501D2119F29D7C002AEAC4 /* SubRegionType.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SubRegionType.cpp; sourceTree = "<group>"; };
+		95501D2219F29D7C002AEAC4 /* SubRegionType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubRegionType.h; sourceTree = "<group>"; };
+		95501D2319F29D7C002AEAC4 /* SurfaceRay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SurfaceRay.cpp; sourceTree = "<group>"; };
+		95501D2419F29D7C002AEAC4 /* SurfaceRay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurfaceRay.h; sourceTree = "<group>"; };
+		95501D2519F29D7C002AEAC4 /* SurfaceRayPoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SurfaceRayPoint.cpp; sourceTree = "<group>"; };
+		95501D2619F29D7C002AEAC4 /* SurfaceRayPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurfaceRayPoint.h; sourceTree = "<group>"; };
+		95501D2819F29D7C002AEAC4 /* QuadratureSet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QuadratureSet.cpp; sourceTree = "<group>"; };
+		95501D2919F29D7C002AEAC4 /* QuadratureSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuadratureSet.h; sourceTree = "<group>"; };
+		95501D2B19F29D7C002AEAC4 /* Assembly.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Assembly.cpp; sourceTree = "<group>"; };
+		95501D2C19F29D7C002AEAC4 /* Assembly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Assembly.h; sourceTree = "<group>"; };
+		95501D2D19F29D7C002AEAC4 /* Cell.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Cell.cpp; sourceTree = "<group>"; };
+		95501D2E19F29D7C002AEAC4 /* Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cell.h; sourceTree = "<group>"; };
+		95501D2F19F29D7C002AEAC4 /* CellSurface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CellSurface.cpp; sourceTree = "<group>"; };
+		95501D3019F29D7C002AEAC4 /* CellSurface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellSurface.h; sourceTree = "<group>"; };
+		95501D3119F29D7C002AEAC4 /* Region.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Region.cpp; sourceTree = "<group>"; };
+		95501D3219F29D7C002AEAC4 /* Region.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Region.h; sourceTree = "<group>"; };
+		95501D3319F29D7C002AEAC4 /* SubRegion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SubRegion.cpp; sourceTree = "<group>"; };
+		95501D3419F29D7C002AEAC4 /* SubRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubRegion.h; sourceTree = "<group>"; };
+		95501D3619F29D7C002AEAC4 /* CrossSection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CrossSection.cpp; sourceTree = "<group>"; };
+		95501D3719F29D7C002AEAC4 /* CrossSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrossSection.h; sourceTree = "<group>"; };
+		95501D3819F29D7C002AEAC4 /* XSLibrary.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XSLibrary.cpp; sourceTree = "<group>"; };
+		95501D3919F29D7C002AEAC4 /* XSLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSLibrary.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		95501CE919F293D1002AEAC4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95501D0219F29BEF002AEAC4 /* liblog4cpp.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		95501CE319F293D1002AEAC4 = {
+			isa = PBXGroup;
+			children = (
+				95501D5319F29E63002AEAC4 /* lib */,
+				95501D5219F29E55002AEAC4 /* src */,
+				95501CED19F293D1002AEAC4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		95501CED19F293D1002AEAC4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				95501CEC19F293D1002AEAC4 /* raysn */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		95501D0819F29D7C002AEAC4 /* geometry */ = {
+			isa = PBXGroup;
+			children = (
+				95501D0919F29D7C002AEAC4 /* Arc.cpp */,
+				95501D0A19F29D7C002AEAC4 /* Arc.h */,
+				95501D0B19F29D7C002AEAC4 /* AzimuthalAngle.cpp */,
+				95501D0C19F29D7C002AEAC4 /* AzimuthalAngle.h */,
+				95501D0D19F29D7C002AEAC4 /* CellType.cpp */,
+				95501D0E19F29D7C002AEAC4 /* CellType.h */,
+				95501D0F19F29D7C002AEAC4 /* CellTypeSurface.cpp */,
+				95501D1019F29D7C002AEAC4 /* CellTypeSurface.h */,
+				95501D1119F29D7C002AEAC4 /* Circle.cpp */,
+				95501D1219F29D7C002AEAC4 /* Circle.h */,
+				95501D1319F29D7C002AEAC4 /* FuelCellType.cpp */,
+				95501D1419F29D7C002AEAC4 /* FuelCellType.h */,
+				95501D1519F29D7C002AEAC4 /* Line.cpp */,
+				95501D1619F29D7C002AEAC4 /* Line.h */,
+				95501D1719F29D7C002AEAC4 /* Point.cpp */,
+				95501D1819F29D7C002AEAC4 /* Point.h */,
+				95501D1919F29D7C002AEAC4 /* RayInfo.cpp */,
+				95501D1A19F29D7C002AEAC4 /* RayInfo.h */,
+				95501D1B19F29D7C002AEAC4 /* RegionType.cpp */,
+				95501D1C19F29D7C002AEAC4 /* RegionType.h */,
+				95501D1D19F29D7C002AEAC4 /* Segment.cpp */,
+				95501D1E19F29D7C002AEAC4 /* Segment.h */,
+				95501D1F19F29D7C002AEAC4 /* Shape.cpp */,
+				95501D2019F29D7C002AEAC4 /* Shape.h */,
+				95501D2119F29D7C002AEAC4 /* SubRegionType.cpp */,
+				95501D2219F29D7C002AEAC4 /* SubRegionType.h */,
+				95501D2319F29D7C002AEAC4 /* SurfaceRay.cpp */,
+				95501D2419F29D7C002AEAC4 /* SurfaceRay.h */,
+				95501D2519F29D7C002AEAC4 /* SurfaceRayPoint.cpp */,
+				95501D2619F29D7C002AEAC4 /* SurfaceRayPoint.h */,
+			);
+			name = geometry;
+			path = src/geometry;
+			sourceTree = "<group>";
+		};
+		95501D2719F29D7C002AEAC4 /* quadrature */ = {
+			isa = PBXGroup;
+			children = (
+				95501D2819F29D7C002AEAC4 /* QuadratureSet.cpp */,
+				95501D2919F29D7C002AEAC4 /* QuadratureSet.h */,
+			);
+			name = quadrature;
+			path = src/quadrature;
+			sourceTree = "<group>";
+		};
+		95501D2A19F29D7C002AEAC4 /* solution */ = {
+			isa = PBXGroup;
+			children = (
+				95501D2B19F29D7C002AEAC4 /* Assembly.cpp */,
+				95501D2C19F29D7C002AEAC4 /* Assembly.h */,
+				95501D2D19F29D7C002AEAC4 /* Cell.cpp */,
+				95501D2E19F29D7C002AEAC4 /* Cell.h */,
+				95501D2F19F29D7C002AEAC4 /* CellSurface.cpp */,
+				95501D3019F29D7C002AEAC4 /* CellSurface.h */,
+				95501D3119F29D7C002AEAC4 /* Region.cpp */,
+				95501D3219F29D7C002AEAC4 /* Region.h */,
+				95501D3319F29D7C002AEAC4 /* SubRegion.cpp */,
+				95501D3419F29D7C002AEAC4 /* SubRegion.h */,
+			);
+			name = solution;
+			path = src/solution;
+			sourceTree = "<group>";
+		};
+		95501D3519F29D7C002AEAC4 /* xs */ = {
+			isa = PBXGroup;
+			children = (
+				95501D3619F29D7C002AEAC4 /* CrossSection.cpp */,
+				95501D3719F29D7C002AEAC4 /* CrossSection.h */,
+				95501D3819F29D7C002AEAC4 /* XSLibrary.cpp */,
+				95501D3919F29D7C002AEAC4 /* XSLibrary.h */,
+			);
+			name = xs;
+			path = src/xs;
+			sourceTree = "<group>";
+		};
+		95501D5219F29E55002AEAC4 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				95501CFA19F29567002AEAC4 /* pch.h */,
+				95501CEF19F293D1002AEAC4 /* main.cpp */,
+				95501D0819F29D7C002AEAC4 /* geometry */,
+				95501D2719F29D7C002AEAC4 /* quadrature */,
+				95501D2A19F29D7C002AEAC4 /* solution */,
+				95501D3519F29D7C002AEAC4 /* xs */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		95501D5319F29E63002AEAC4 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				95501D0119F29BEF002AEAC4 /* liblog4cpp.a */,
+				95501CFF19F29B8D002AEAC4 /* liblog4cpp.5.dylib */,
+			);
+			name = lib;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		95501CEB19F293D1002AEAC4 /* raysn */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95501CF319F293D1002AEAC4 /* Build configuration list for PBXNativeTarget "raysn" */;
+			buildPhases = (
+				95501CE819F293D1002AEAC4 /* Sources */,
+				95501CE919F293D1002AEAC4 /* Frameworks */,
+				95501CEA19F293D1002AEAC4 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = raysn;
+			productName = raysn;
+			productReference = 95501CEC19F293D1002AEAC4 /* raysn */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		95501CE419F293D1002AEAC4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "Jooil Yoon";
+				TargetAttributes = {
+					95501CEB19F293D1002AEAC4 = {
+						CreatedOnToolsVersion = 6.0.1;
+					};
+				};
+			};
+			buildConfigurationList = 95501CE719F293D1002AEAC4 /* Build configuration list for PBXProject "raysn" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 95501CE319F293D1002AEAC4;
+			productRefGroup = 95501CED19F293D1002AEAC4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				95501CEB19F293D1002AEAC4 /* raysn */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		95501CE819F293D1002AEAC4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95501D5119F29E3B002AEAC4 /* main.cpp in Sources */,
+				95501D4219F29D7C002AEAC4 /* RayInfo.cpp in Sources */,
+				95501D4419F29D7C002AEAC4 /* Segment.cpp in Sources */,
+				95501D4819F29D7C002AEAC4 /* SurfaceRayPoint.cpp in Sources */,
+				95501D4D19F29D7C002AEAC4 /* Region.cpp in Sources */,
+				95501D3A19F29D7C002AEAC4 /* Arc.cpp in Sources */,
+				95501D4019F29D7C002AEAC4 /* Line.cpp in Sources */,
+				95501D4C19F29D7C002AEAC4 /* CellSurface.cpp in Sources */,
+				95501D3E19F29D7C002AEAC4 /* Circle.cpp in Sources */,
+				95501D3C19F29D7C002AEAC4 /* CellType.cpp in Sources */,
+				95501D4119F29D7C002AEAC4 /* Point.cpp in Sources */,
+				95501D4F19F29D7C002AEAC4 /* CrossSection.cpp in Sources */,
+				95501D4A19F29D7C002AEAC4 /* Assembly.cpp in Sources */,
+				95501D4E19F29D7C002AEAC4 /* SubRegion.cpp in Sources */,
+				95501D4B19F29D7C002AEAC4 /* Cell.cpp in Sources */,
+				95501D3B19F29D7C002AEAC4 /* AzimuthalAngle.cpp in Sources */,
+				95501D4619F29D7C002AEAC4 /* SubRegionType.cpp in Sources */,
+				95501D5019F29D7C002AEAC4 /* XSLibrary.cpp in Sources */,
+				95501D4319F29D7C002AEAC4 /* RegionType.cpp in Sources */,
+				95501D4719F29D7C002AEAC4 /* SurfaceRay.cpp in Sources */,
+				95501D4919F29D7C002AEAC4 /* QuadratureSet.cpp in Sources */,
+				95501D3D19F29D7C002AEAC4 /* CellTypeSurface.cpp in Sources */,
+				95501D3F19F29D7C002AEAC4 /* FuelCellType.cpp in Sources */,
+				95501D4519F29D7C002AEAC4 /* Shape.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		95501CF119F293D1002AEAC4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		95501CF219F293D1002AEAC4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		95501CF419F293D1002AEAC4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		95501CF519F293D1002AEAC4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		95501CE719F293D1002AEAC4 /* Build configuration list for PBXProject "raysn" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95501CF119F293D1002AEAC4 /* Debug */,
+				95501CF219F293D1002AEAC4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		95501CF319F293D1002AEAC4 /* Build configuration list for PBXNativeTarget "raysn" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95501CF419F293D1002AEAC4 /* Debug */,
+				95501CF519F293D1002AEAC4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 95501CE419F293D1002AEAC4 /* Project object */;
+}

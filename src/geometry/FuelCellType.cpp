@@ -83,7 +83,7 @@ void FuelCellType::construct(RayInfo& ri) {
 		}
 
 		double dy = width / nya;
-		double y = -dx * 0.5;
+		double y = -dy * 0.5;
 
 		//WEST
 		for (int i = 0; i < nya; i++) {
@@ -96,7 +96,7 @@ void FuelCellType::construct(RayInfo& ri) {
 		}
 
 		//EAST
-		y = -dx * 0.5;
+		y = -dy * 0.5;
 		for (int i = 0; i < nya; i++) {
 			y += dy;
 			SurfaceRayPoint* point = new SurfaceRayPoint();
@@ -278,7 +278,7 @@ void FuelCellType::initRegions() {
 		regions.push_back(region);
 
 		region->setIndex(ir);
-		region->setVolume((prevVolume = -volume));
+		region->setVolume((prevVolume -= volume));
 
 		double subVolume = prevVolume * RDIVREG;
 
@@ -402,6 +402,8 @@ void FuelCellType::initSurfaceRays() {
 						SurfaceRayPoint& endPoint = ia.findSurfaceRayPoints(
 								cross, width, inews);
 
+						logger.debug("Surface End Point Check: (%f, %f) (%f, %f)", cross.getX(), cross.getY(), endPoint.getX(), endPoint.getY());
+						
 						ip.setEndPoint(islope, endPoint);
 						ip.getRay(islope).setLength(length);
 
@@ -447,6 +449,8 @@ void FuelCellType::initSegments(SurfaceRayPoint& point, int islope,
 				break;
 			}
 		}
+		
+		logger.debug("Segment: (%f, %f) (%f, %f)", start.getX(), start.getY(), end.getX(), end.getY());
 
 		if (end == point.getEndPoint(islope))
 			break;

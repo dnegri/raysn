@@ -77,16 +77,16 @@ SurfaceRayPoint& AzimuthalAngle::findSurfaceRayPoints(const Point & point, const
 
 	switch(surface) {
 		case NORTH:
-			index = round(point.getX() / dx);
+			index = round(point.getX() / dx - 0.5);
 			break;
 		case SOUTH:
-			index = nPointX + round(point.getX() / dx);
+			index = nPointX + round(point.getX() / dx  - 0.5);
 			break;
 		case WEST:
-			index = 2*nPointX + round(point.getY() / dy);
+			index = 2*nPointX + round(point.getY() / dy  - 0.5);
 			break;
 		case EAST:
-			index = 2*nPointX + nPointY + round(point.getY() / dy);
+			index = 2*nPointX + nPointY + round(point.getY() / dy  - 0.5);
 			break;
 	}
 

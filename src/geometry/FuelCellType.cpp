@@ -9,16 +9,16 @@
 #include "SubRegionType.h"
 
 FuelCellType::FuelCellType(const double width, const int nRings,
-		const std::vector<int>& nSubRings,
-		const std::vector<double>& radiuses) {
-	this->width = width;
-	this->nRings = nRings;
+						   const std::vector<int>& nSubRings,
+						   const std::vector<double>& radiuses) {
+	this->width		= width;
+	this->nRings	= nRings;
 	this->nSubRings = nSubRings;
-	this->radiuses = radiuses;
+	this->radiuses	= radiuses;
 
-	rwidth = 1. / width;
-	hwidth = width * 0.5;
-	volume = width * width;
+	rwidth	= 1. / width;
+	hwidth	= width * 0.5;
+	volume	= width * width;
 	rvolume = 1. / volume;
 
 	nCircles = accumulate(nSubRings.begin(), nSubRings.end(), 0);
@@ -40,8 +40,8 @@ void FuelCellType::construct(RayInfo& ri) {
 
 		double ang = dtheta * (i + 0.5);
 		double npt = width / ri.getRaySpace();
-		int nxa = int(sin(ang) * npt);
-		int nya = int(cos(ang) * npt);
+		int	   nxa = int(sin(ang) * npt);
+		int	   nya = int(cos(ang) * npt);
 
 		nxa = nxa + nxa % 2;
 		nya = nya + nya % 2;
@@ -52,14 +52,14 @@ void FuelCellType::construct(RayInfo& ri) {
 
 		angle->setAngle(ang);
 		angle->setRayspace(
-				volume / sqrt(pow(nxa * width, 2.0) + pow(nya * width, 2.0)));
+			volume / sqrt(pow(nxa * width, 2.0) + pow(nya * width, 2.0)));
 		angle->setPointX(nxa);
 		angle->setPointY(nya);
 
 		angles.push_back(angle);
 
 		double dx = width / nxa;
-		double x = -dx * 0.5;
+		double x  = -dx * 0.5;
 
 		//NORTH
 		for (int i = 0; i < nxa; i++) {
@@ -83,7 +83,7 @@ void FuelCellType::construct(RayInfo& ri) {
 		}
 
 		double dy = width / nya;
-		double y = -dy * 0.5;
+		double y  = -dy * 0.5;
 
 		//WEST
 		for (int i = 0; i < nya; i++) {
@@ -110,12 +110,12 @@ void FuelCellType::construct(RayInfo& ri) {
 	AzimuthalAngle& angle1 = angles.at(0);
 	AzimuthalAngle& angle2 = angles.at(1);
 
-	double weight = 0.25 * (angle1.getAngle() + angle2.getAngle()) / PI;
+	double			weight = 0.25 * (angle1.getAngle() + angle2.getAngle()) / PI;
 	angle1.setWeight(weight);
 	angles.end()->setWeight(weight);
 
 	for (int i = 1; i < ri.getAziAngles() - 1; i++) {
-		AzimuthalAngle& angle = angles.at(i);
+		AzimuthalAngle& angle  = angles.at(i);
 		AzimuthalAngle& angle1 = angles.at(i - 1);
 		AzimuthalAngle& angle2 = angles.at(i + 1);
 
@@ -224,7 +224,7 @@ void FuelCellType::initLines() {
 		for (int idiv = 0; idiv < NDIVREG; idiv++) {
 			Line* line = new Line();
 
-			int ip = ir * NDIVREG + idiv;
+			int	  ip = ir * NDIVREG + idiv;
 			line->setBeginPoint(points.at(ip));
 
 			ip = ip + NDIVREG;
@@ -236,7 +236,7 @@ void FuelCellType::initLines() {
 		for (int idiv = 0; idiv < NDIVREG; idiv++) {
 			Arc* arc = new Arc();
 
-			int ip = (ir + 1) * NDIVREG + idiv;
+			int	 ip = (ir + 1) * NDIVREG + idiv;
 			arc->setBeginPoint(points.at(ip));
 
 			ip = (ir + 1) * NDIVREG + (idiv+1) % NDIVREG;
@@ -255,7 +255,7 @@ void FuelCellType::initLines() {
 	for (int idiv = 0; idiv < NDIVREG; idiv++) {
 		Line* line = new Line();
 
-		int ip = nCircles * NDIVREG + idiv;
+		int	  ip = nCircles * NDIVREG + idiv;
 		line->setBeginPoint(points.at(ip));
 
 		ip = std::min<int>(ip + NDIVREG, points.size() - 1);
@@ -271,8 +271,8 @@ void FuelCellType::initRegions() {
 	double prevVolume = getVolume();
 
 	for (int ir = 0; ir < nCircles; ir++) {
-		double radius = getRadius(ir);
-		double volume = PI * pow(radius, 2);
+		double		 radius = getRadius(ir);
+		double		 volume = PI * pow(radius, 2);
 
 		RegionType * region = new RegionType();
 		regions.push_back(region);
@@ -331,79 +331,83 @@ void FuelCellType::initSurfaceRays() {
 
 	for (int i = 0; i < angles.size(); i++) {
 
-		AzimuthalAngle& ia = angles.at(i);
+		AzimuthalAngle&						ia = angles.at(i);
 
 		boost::ptr_vector<SurfaceRayPoint>& points = ia.getSurfacePoints();
 
 		for (int j = 0; j < points.size(); j++) {
 			SurfaceRayPoint& ip = points.at(j);
 
-			Line* subRegionSurface = NULL;
-			SubRegionType* subRegion = NULL;
+			Line*			 subRegionSurface = NULL;
+			SubRegionType*	 subRegion		  = NULL;
 			switch (ip.getNEWS()) {
 			case NORTH:
 				if (ip.getX() < hwidth) {
 					subRegionSurface = &lines.at(0);
-					subRegion = &regions.at(0).getSubRegions().at(0);
-				} else {
+					subRegion		 = &regions.at(0).getSubRegions().at(0);
+				}
+				else {
 					subRegionSurface = &lines.at(1);
-					subRegion = &regions.at(0).getSubRegions().at(1);
+					subRegion		 = &regions.at(0).getSubRegions().at(1);
 				}
 				break;
 			case EAST:
 				if (ip.getY() < hwidth) {
 					subRegionSurface = &lines.at(2);
-					subRegion = &regions.at(0).getSubRegions().at(2);
-				} else {
+					subRegion		 = &regions.at(0).getSubRegions().at(2);
+				}
+				else {
 					subRegionSurface = &lines.at(3);
-					subRegion = &regions.at(0).getSubRegions().at(3);
+					subRegion		 = &regions.at(0).getSubRegions().at(3);
 				}
 				break;
 			case SOUTH:
 				if (ip.getX() > hwidth) {
 					subRegionSurface = &lines.at(4);
-					subRegion = &regions.at(0).getSubRegions().at(4);
-				} else {
+					subRegion		 = &regions.at(0).getSubRegions().at(4);
+				}
+				else {
 					subRegionSurface = &lines.at(5);
-					subRegion = &regions.at(0).getSubRegions().at(5);
+					subRegion		 = &regions.at(0).getSubRegions().at(5);
 				}
 				break;
 			case WEST:
 				if (ip.getY() > hwidth) {
 					subRegionSurface = &lines.at(6);
-					subRegion = &regions.at(0).getSubRegions().at(6);
-				} else {
+					subRegion		 = &regions.at(0).getSubRegions().at(6);
+				}
+				else {
 					subRegionSurface = &lines.at(7);
-					subRegion = &regions.at(0).getSubRegions().at(7);
+					subRegion		 = &regions.at(0).getSubRegions().at(7);
 				}
 				break;
 			}
 			ip.setSubRegionSurface(*subRegionSurface);
 			ip.setSubRegion(*subRegion);
-			
+
 			double slope = ia.getTangent();
-			Line& line = ip.getSurface();
-			
+			Line&  line	 = ip.getSurface();
+
 			for (int islope = 0; islope < NSLOPE; islope++) {
 
 				for (int inews = 0; inews < NEWS; inews++) {
-					
+
 					if (&line == &(surface[inews]))
 						continue;
 
-					Point cross;
+					Point  cross;
 					double length = 0.0;
 
-					bool crossed = surface[inews].cross(ip, slope,
-							ip.getDirection(islope).x,
-							ip.getDirection(islope).y, cross, length);
+					bool   crossed = surface[inews].cross(ip, slope,
+														  ip.getDirection(islope).x,
+														  ip.getDirection(islope).y, cross, length);
 
 					if (crossed) {
 						SurfaceRayPoint& endPoint = ia.findSurfaceRayPoints(
-								cross, width, inews);
+							cross, width, inews);
 
 //						logger.debug("Surface End Point Check: (%f, %f) (%f, %f)", cross.getX(), cross.getY(), endPoint.getX(), endPoint.getY());
-						
+
 						ip.setEndPoint(islope, endPoint);
 						ip.getRay(islope).setLength(length);
 
@@ -412,7 +416,7 @@ void FuelCellType::initSurfaceRays() {
 						break;
 					}
 				}
-				
+
 				slope *= -1;
 			}
 		}
@@ -421,12 +425,12 @@ void FuelCellType::initSurfaceRays() {
 }
 
 void FuelCellType::initSegments(SurfaceRayPoint& point, int islope,
-		double slope) {
+								double slope) {
 
 	SubRegionType* sub = &point.getSubRegion();
 
-	Point start = point;
-	const Line* startLine = &point.getSubRegionSurface();
+	Point		   start	 = point;
+	const Line*	   startLine = &point.getSubRegionSurface();
 
 	while (true) {
 		Line* line = NULL;
@@ -435,13 +439,13 @@ void FuelCellType::initSegments(SurfaceRayPoint& point, int islope,
 		for (int i = 0; i < sub->getEdges().size(); i++) {
 
 			line = &sub->getEdges().at(i);
-			
+
 			if(startLine == line) continue;
 
-			double length = 0.0;
-			bool crossed = line->cross(start, slope,
-					point.getDirection(islope).x, point.getDirection(islope).y,
-					end, length);
+			double length  = 0.0;
+			bool   crossed = line->cross(start, slope,
+										 point.getDirection(islope).x, point.getDirection(islope).y,
+										 end, length);
 
 			if (crossed) {
 				Segment* segment = new Segment(*sub, length);
@@ -449,15 +453,15 @@ void FuelCellType::initSegments(SurfaceRayPoint& point, int islope,
 				break;
 			}
 		}
-		
+
 		plotData.push_back(boost::make_tuple(start.getX(), start.getY()));
 		plotData.push_back(boost::make_tuple(end.getX(), end.getY()));
 
 		if (end == point.getEndPoint(islope))
 			break;
 
-		start = end;
+		start	  = end;
 		startLine = line;
-		sub = &(line->getNeighborSubRegion(*sub));
+		sub		  = &(line->getNeighborSubRegion(*sub));
 	}
 }

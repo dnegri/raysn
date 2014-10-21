@@ -15,7 +15,7 @@
 
 class Segment {
 private:
-	double length;
+	double		   length;
 	SubRegionType& subRegion;
 
 public:

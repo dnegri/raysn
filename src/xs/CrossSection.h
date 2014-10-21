@@ -12,11 +12,11 @@
 
 class CrossSection {
 private:
-	int		energyGroup;
-	double* nuFission;
-	double* total;
-	double* transport;
-	double* chi;
+	int		 energyGroup;
+	double*	 nuFission;
+	double*	 total;
+	double*	 transport;
+	double*	 chi;
 	double** scattering;
 
 public:

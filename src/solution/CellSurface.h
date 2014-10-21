@@ -13,8 +13,8 @@
 
 class CellSurface {
 private:
-	int nAngles;
-	int nPolar;
+	int					   nAngles;
+	int					   nPolar;
 	std::vector<double**>* angFlux;
 
 public:

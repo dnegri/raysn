@@ -12,20 +12,20 @@
 #include "SurfaceRay.h"
 #include "Point.h"
 
-static const int POSITIVE  = 0;
-static const int NEGATIVE  = 1;
-static const int NSLOPE    = 2;
+static const int POSITIVE = 0;
+static const int NEGATIVE = 1;
+static const int NSLOPE	  = 2;
 
 
 class SurfaceRayPoint : public Point {
 
 private:
-	int   inews;
-	Line* cellSurface;
-	Line* subRegionSurface;
+	int				 inews;
+	Line*			 cellSurface;
+	Line*			 subRegionSurface;
 	SurfaceRayPoint* endPoints[NSLOPE];
-	SubRegionType* subRegion;
-	SurfaceRay ray[NSLOPE];
+	SubRegionType*	 subRegion;
+	SurfaceRay		 ray[NSLOPE];
 
 	struct Direction {
 		int x;

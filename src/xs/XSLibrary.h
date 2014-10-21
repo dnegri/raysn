@@ -12,7 +12,7 @@
 
 class XSLibrary {
 private:
-	int energyGroup;
+	int								energyGroup;
 	boost::ptr_vector<CrossSection> crossSections;
 
 public:
@@ -20,7 +20,7 @@ public:
 	virtual ~XSLibrary();
 
 	void initialize();
-	
+
 	CrossSection& getCrossSection(int index) {
 		return crossSections.at(index);
 	}

@@ -17,8 +17,8 @@ class SubRegionType;
 
 class Line : public Shape {
 protected:
-	Point* beginPoint;
-	Point* endPoint;
+	Point*		   beginPoint;
+	Point*		   endPoint;
 	SubRegionType* subRegions[2];
 
 public:

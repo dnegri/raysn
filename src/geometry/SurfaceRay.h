@@ -15,7 +15,7 @@
 
 class SurfaceRay {
 private:
-	double length;
+	double					   length;
 	boost::ptr_vector<Segment> segments;
 
 public:

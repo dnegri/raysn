@@ -14,9 +14,9 @@
 
 class Region {
 private:
-	RegionType* type;
-	CrossSection* crossSection;
-	double * flux;
+	RegionType*					 type;
+	CrossSection*				 crossSection;
+	double *					 flux;
 
 	boost::ptr_vector<SubRegion> subRegions;
 
@@ -25,11 +25,11 @@ public:
 	virtual ~Region();
 
 	double calculateFissionSource();
-	void calculateSource(int group, double reigv);
-	void addSelfScattering(int group);
-	void clearOneGroupFlux(int group);
-	void makeOneGroupFlux(int group);
-	
+	void   calculateSource(int group, double reigv);
+	void   addSelfScattering(int group);
+	void   clearOneGroupFlux(int group);
+	void   makeOneGroupFlux(int group);
+
 	CrossSection& getCrossSection() {
 		return *crossSection;
 	}

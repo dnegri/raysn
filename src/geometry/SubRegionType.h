@@ -18,9 +18,9 @@ class RegionType;
 class SubRegionType {
 
 private:
-	int    index;
-	double	volume;
-	RegionType& region;
+	int						index;
+	double					volume;
+	RegionType&				region;
 	boost::ptr_vector<Line> edges;
 
 public:

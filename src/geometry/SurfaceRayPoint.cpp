@@ -20,7 +20,7 @@ SurfaceRayPoint::~SurfaceRayPoint() {
 
 void SurfaceRayPoint::setCellSurface(Line& surface, int inews) {
 	this->cellSurface = &surface;
-	this->inews = inews;
+	this->inews		  = inews;
 
 	switch(inews) {
 	case NORTH:

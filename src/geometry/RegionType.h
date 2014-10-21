@@ -16,8 +16,8 @@
 class RegionType {
 
 private:
-	int    index;
-	double volume;
+	int								 index;
+	double							 volume;
 	boost::ptr_vector<SubRegionType> subRegions;
 
 public:

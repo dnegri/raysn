@@ -13,7 +13,7 @@ Cell::Cell(int x, int y, FuelCellType& type, XSLibrary& xsl) {
 
 	this->x = x;
 	this->y = y;
-	
+
 	this->type = &type;
 	this->xsl  = &xsl;
 
@@ -28,7 +28,7 @@ Cell::~Cell() {
 
 void Cell::solveOuter(int nout, int nInner) {
 
-	double eigv = 0.0;
+	double eigv	 = 0.0;
 	double reigv = 1.0;
 
 	double fissionSource = calculateFissionSource();
@@ -38,13 +38,13 @@ void Cell::solveOuter(int nout, int nInner) {
 
 		double newFissionSource = calculateFissionSource();
 
-	    double newEigv = eigv*newFissionSource/fissionSource;
+		double newEigv = eigv*newFissionSource/fissionSource;
 
-	    if(fabs(eigv-newEigv) < MICRO) break;
+		if(fabs(eigv-newEigv) < MICRO) break;
 
-	    eigv = newEigv;
-	    reigv = 1./eigv;
-	    fissionSource = newFissionSource;
+		eigv		  = newEigv;
+		reigv		  = 1./eigv;
+		fissionSource = newFissionSource;
 	}
 }
 
@@ -54,7 +54,7 @@ void Cell::solveInner(int nInner, double reigv) {
 
 	QuadratureSet& quad = QuadratureSet::getInstance();
 
-	CellSurface& startSurface = *surface[initialNEWS];
+	CellSurface&   startSurface = *surface[initialNEWS];
 
 
 	for(int ig = 0; ig < xsl->getEnergyGroup(); ig++) {
@@ -66,7 +66,7 @@ void Cell::solveInner(int nInner, double reigv) {
 			for(Region& region : regions) {
 				region.addSelfScattering(ig);
 			}
-			
+
 			clearOneGroupFlux(ig);
 
 			for(int is=0; is<NSLOPE; is++) {
@@ -76,15 +76,15 @@ void Cell::solveInner(int nInner, double reigv) {
 				for(AzimuthalAngle& angle : type->getAngles()) {
 					std::vector<double**>& angFluxes = startSurface.getAngFlux(idxAngle);
 
-					int idxPoint = 0;
+					int					   idxPoint = 0;
 					for(double** angFlux : angFluxes) {
 
-						SurfaceRayPoint* point = &angle.getSurfacePoints().at(idxPoint);
-						int islope = is;
+						SurfaceRayPoint* point	= &angle.getSurfacePoints().at(idxPoint);
+						int				 islope = is;
 
-						double inAngFlux[quad.getNPolarAngles()];
+						double			 inAngFlux[quad.getNPolarAngles()];
 
-						for(int ip=0;ip<quad.getNPolarAngles();ip++) {
+						for(int ip=0; ip<quad.getNPolarAngles(); ip++) {
 							inAngFlux[ip] = angFlux[ip][ig];
 						}
 
@@ -94,20 +94,20 @@ void Cell::solveInner(int nInner, double reigv) {
 
 
 								RegionType& regionType = segment.getSubRegion().getRegion();
-								Region& region = regions.at(regionType.getIndex());
+								Region&		region	   = regions.at(regionType.getIndex());
 
-								int idxSub = segment.getSubRegion().getIndex();
-								SubRegion& subRegion = region.getSubRegion(idxSub);
+								int			idxSub	  = segment.getSubRegion().getIndex();
+								SubRegion&	subRegion = region.getSubRegion(idxSub);
 
-								double source = subRegion.getSource(ig);
+								double		source = subRegion.getSource(ig);
 
-								double olen = -region.getCrossSection().getTransport()[ig]*segment.getLength();
+								double		olen = -region.getCrossSection().getTransport()[ig]*segment.getLength();
 
-								for(int ip=0; ip<quad.getNPolarAngles();ip++) {
+								for(int ip=0; ip<quad.getNPolarAngles(); ip++) {
 									double expo = 1 - exp(olen/quad.getSine(ip));
 
 
-									double aphio = expo*(inAngFlux[ip] - source);
+									double aphio	  = expo*(inAngFlux[ip] - source);
 									double outAngFlux = inAngFlux[ip] - aphio;
 
 
@@ -125,7 +125,7 @@ void Cell::solveInner(int nInner, double reigv) {
 
 							if(point->getNEWS() == initialNEWS) break;
 						}
-						
+
 						idxPoint++;
 					}
 
@@ -169,6 +169,6 @@ void Cell::updateCrossSection() {
 	for(Region& region : regions) {
 		region.getCrossSection() = xsl->getCrossSection(0);
 	}
-	
+
 	regions.at(0).getCrossSection() = xsl->getCrossSection(1);
 }

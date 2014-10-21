@@ -14,8 +14,8 @@
 
 class RayInfo {
 private:
-	int	nAziAngles;
-	int nAziAnglesX2;
+	int	   nAziAngles;
+	int	   nAziAnglesX2;
 
 	double raySpace;
 
@@ -24,14 +24,14 @@ public:
 	RayInfo(int, int, double);
 	virtual ~RayInfo();
 
-	int getAziAngles() const;
+	int	 getAziAngles() const;
 	void setAziAngles(int aziAngles);
 
-	int getAziAnglesX2() const;
+	int	 getAziAnglesX2() const;
 	void setAziAnglesX2(int aziAnglesX2);
 
 	double getRaySpace() const;
-	void setRaySpace(double raySpace);
+	void   setRaySpace(double raySpace);
 };
 
 

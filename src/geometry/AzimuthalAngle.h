@@ -16,15 +16,15 @@
 class AzimuthalAngle {
 
 private:
-	int    nPointX;
-	int    nPointY;
+	int								   nPointX;
+	int								   nPointY;
 
-	double angle;
-	double vsine;
-	double vcosine;
-	double vtangent;
-	double rayspace;
-	double weight;
+	double							   angle;
+	double							   vsine;
+	double							   vcosine;
+	double							   vtangent;
+	double							   rayspace;
+	double							   weight;
 
 	boost::ptr_vector<SurfaceRayPoint> surfacePoints;
 
@@ -34,11 +34,11 @@ public:
 
 
 	double getRayspace() const;
-	void setRayspace(double rayspace);
+	void   setRayspace(double rayspace);
 
-	boost::ptr_vector<SurfaceRayPoint>& getSurfacePoints() ;
-	void addSurfaceRayPoint(SurfaceRayPoint& point);
-	SurfaceRayPoint& findSurfaceRayPoints(const Point & point, const double width, const int surface);
+	boost::ptr_vector<SurfaceRayPoint>& getSurfacePoints();
+	void								addSurfaceRayPoint(SurfaceRayPoint& point);
+	SurfaceRayPoint&					findSurfaceRayPoints(const Point & point, const double width, const int surface);
 
 	void setAngle(double angle);
 	void setWeight(double weight);

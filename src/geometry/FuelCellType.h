@@ -22,28 +22,28 @@
 
 class FuelCellType : public CellType {
 private:
-	int  nRings;
-	double width;
-	std::vector<int> nSubRings;
-	std::vector<double> radiuses;
+	int								  nRings;
+	double							  width;
+	std::vector<int>				  nSubRings;
+	std::vector<double>				  radiuses;
 
-	Point center;
-	Point corner[NEWS];
-	Line  surface[NEWS];
+	Point							  center;
+	Point							  corner[NEWS];
+	Line							  surface[NEWS];
 
-	int  nCircles;
+	int								  nCircles;
 
-	double hwidth;
-	double rwidth;
-	double volume;
-	double rvolume;
+	double							  hwidth;
+	double							  rwidth;
+	double							  volume;
+	double							  rvolume;
 
 	boost::ptr_vector<AzimuthalAngle> angles;
 
-	boost::ptr_vector<Point>  points;
-	boost::ptr_vector<Line>   lines;
-	boost::ptr_vector<RegionType> regions;
-	
+	boost::ptr_vector<Point>		  points;
+	boost::ptr_vector<Line>			  lines;
+	boost::ptr_vector<RegionType>	  regions;
+
 public:
 	std::vector<boost::tuple<double, double> > plotData;
 

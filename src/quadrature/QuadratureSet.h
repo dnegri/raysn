@@ -12,9 +12,9 @@ class QuadratureSet {
 
 private:
 	int		nPolarAngles;
-	double*	weights;
-	double*	angles;
-	double*	sins;
+	double* weights;
+	double* angles;
+	double* sins;
 
 private:
 	QuadratureSet(int nPolarAngles=3);

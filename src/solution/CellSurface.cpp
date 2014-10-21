@@ -11,7 +11,7 @@
 CellSurface::CellSurface(FuelCellType& type, XSLibrary& xsl, int dirxy) {
 
 	nAngles = type.getAngles().size();
-	nPolar  = QuadratureSet::getInstance().getNPolarAngles();
+	nPolar	= QuadratureSet::getInstance().getNPolarAngles();
 
 	angFlux = new std::vector<double **>[nAngles];
 

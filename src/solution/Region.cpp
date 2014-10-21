@@ -11,7 +11,7 @@ Region::Region(const int energyGroup, RegionType& type) {
 
 	this->type = &type;
 
-	flux = new double[energyGroup];
+	flux		 = new double[energyGroup];
 	crossSection = new CrossSection(energyGroup);
 
 	for(SubRegionType& subRegionType : type.getSubRegions()) {

@@ -21,7 +21,7 @@
 using namespace log4cpp;
 
 int main(int argc, const char* argv[]) {
-	Appender * appender = new OstreamAppender("console",&std::cout);
+	Appender *	   appender = new OstreamAppender("console",&std::cout);
 
 	PatternLayout* layout = new PatternLayout();
 	layout->setConversionPattern("%d %c [%p] %m%n");
@@ -33,8 +33,8 @@ int main(int argc, const char* argv[]) {
 	root.setPriority(log4cpp::Priority::DEBUG);
 	root.addAppender(appender);
 
-	double width = 1.28776;
-	int nRings = 1;
+	double			 width	= 1.28776;
+	int				 nRings = 1;
 
 	std::vector<int> nSubRings;
 	nSubRings.push_back(1);
@@ -43,27 +43,27 @@ int main(int argc, const char* argv[]) {
 	radiuses.push_back(0.41275);
 
 	FuelCellType fuelCellType(width, nRings, nSubRings, radiuses);
-	XSLibrary xsl;
+	XSLibrary	 xsl;
 	xsl.initialize();
-	
+
 	RayInfo rayInfo(4, 8, 0.2);
 
 	fuelCellType.construct(rayInfo);
 
 	Cell cell(fuelCellType, xsl);
-	
+
 	cell.updateCrossSection();
-	
+
 	gnuplotio::Gnuplot gp;
-	
+
 	gp << "set size square\n";
 	gp << "set xrange [0:"<<width<<"]\n";
 	gp << "set yrange [0:"<<width<<"]\n";
 	gp << "plot '-' pt 7 ps 1 lc rgb 'blue' \n";
-	
+
 	gp.send1d(fuelCellType.plotData);
-	
+
 	pause();
-	
+
 	return 0;
 }

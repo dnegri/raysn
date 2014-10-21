@@ -14,22 +14,22 @@
 class SubRegion {
 private:
 	SubRegionType* type;
-	double * flux;
-	double * source;
-	double fissionSource;
+	double *	   flux;
+	double *	   source;
+	double		   fissionSource;
 
 public:
 	SubRegion(int energyGroup, SubRegionType& type);
 	virtual ~SubRegion();
 
-	void calculateSource(const CrossSection& xs, int group, double eigv);
+	void   calculateSource(const CrossSection& xs, int group, double eigv);
 	double calculateFissionSource(const CrossSection& xs);
-	void addSelfScattering(const CrossSection& xs, int group);
-	void addOneGroupFlux(int group, double flux);
-	void clearOneGroupFlux(int group);
-	void makeOneGroupFlux(const CrossSection& xs, int group);
+	void   addSelfScattering(const CrossSection& xs, int group);
+	void   addOneGroupFlux(int group, double flux);
+	void   clearOneGroupFlux(int group);
+	void   makeOneGroupFlux(const CrossSection& xs, int group);
 	double updateFissionSource(const CrossSection& xs);
-	
+
 	double getFlux(int group) {
 		return flux[group];
 	}

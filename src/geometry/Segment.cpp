@@ -10,7 +10,7 @@
 
 
 Segment::Segment(SubRegionType& sub, double length) :
-		subRegion(sub), length(length) {
+	subRegion(sub), length(length) {
 
 }
 

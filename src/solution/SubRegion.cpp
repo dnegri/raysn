@@ -12,6 +12,9 @@ SubRegion::SubRegion(int energyGroup, SubRegionType& type) : type(&type) {
 	flux   = new double[energyGroup];
 	source = new double[energyGroup];
 
+	for(int ig=1; ig < energyGroup; ig++) {
+		flux[ig] = 1.0;
+	}
 }
 
 SubRegion::~SubRegion() {
@@ -34,7 +37,7 @@ void SubRegion::calculateSource(const CrossSection& xs, int group, double reigv)
 	source[group] = reigv*xs.getChi()[group]*fissionSource;
 
 	for(int ig=1; ig < xs.getEnergyGroup(); ig++) {
-		source[group] += (xs.getScattering()[ig][group]*flux[ig]) ;
+		source[group] += (xs.getScattering()[group][ig]*flux[ig]) ;
 	}
 	source[group] -= (xs.getScattering()[group][group]*flux[group]) ;
 

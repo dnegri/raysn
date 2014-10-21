@@ -24,8 +24,7 @@ double Arc::getAngle(const Point& point) const{
 	return atan2(delta.getY(), delta.getX());
 }
 
-bool Arc::cross(const Point& point, double slope, int dirX, int dirY,
-		Point cross, double length) const {
+bool Arc::cross(const Point& point, double& slope, int& dirX, int& dirY, Point& cross, double& length) const{
 
 	// two intersection points
 	double yint = point.getY() - slope * point.getX();

@@ -23,6 +23,8 @@ public:
 	CrossSection(const int energyGroup);
 	virtual ~CrossSection();
 
+	void operator=(const CrossSection& crossSection);
+
 	double* getChi() const {
 		return chi;
 	}

@@ -32,6 +32,8 @@
 		95501D4F19F29D7C002AEAC4 /* CrossSection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95501D3619F29D7C002AEAC4 /* CrossSection.cpp */; };
 		95501D5019F29D7C002AEAC4 /* XSLibrary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95501D3819F29D7C002AEAC4 /* XSLibrary.cpp */; };
 		95501D5119F29E3B002AEAC4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95501CEF19F293D1002AEAC4 /* main.cpp */; };
+		95A78CDB19F6A4C2008A1F93 /* libboost_system.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95A78CDA19F6A4C2008A1F93 /* libboost_system.a */; };
+		95A78CDD19F6A54E008A1F93 /* libboost_iostreams.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95A78CDC19F6A54E008A1F93 /* libboost_iostreams.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -50,7 +52,6 @@
 		95501CEC19F293D1002AEAC4 /* raysn */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = raysn; sourceTree = BUILT_PRODUCTS_DIR; };
 		95501CEF19F293D1002AEAC4 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = "<group>"; };
 		95501CFA19F29567002AEAC4 /* pch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = pch.h; path = src/pch.h; sourceTree = "<group>"; };
-		95501CFF19F29B8D002AEAC4 /* liblog4cpp.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = liblog4cpp.5.dylib; path = /usr/local/lib/liblog4cpp.5.dylib; sourceTree = "<absolute>"; };
 		95501D0119F29BEF002AEAC4 /* liblog4cpp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblog4cpp.a; path = /usr/local/lib/liblog4cpp.a; sourceTree = "<absolute>"; };
 		95501D0919F29D7C002AEAC4 /* Arc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Arc.cpp; sourceTree = "<group>"; };
 		95501D0A19F29D7C002AEAC4 /* Arc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Arc.h; sourceTree = "<group>"; };
@@ -98,6 +99,8 @@
 		95501D3719F29D7C002AEAC4 /* CrossSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrossSection.h; sourceTree = "<group>"; };
 		95501D3819F29D7C002AEAC4 /* XSLibrary.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XSLibrary.cpp; sourceTree = "<group>"; };
 		95501D3919F29D7C002AEAC4 /* XSLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSLibrary.h; sourceTree = "<group>"; };
+		95A78CDA19F6A4C2008A1F93 /* libboost_system.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_system.a; path = /usr/local/Cellar/boost/1.56.0/lib/libboost_system.a; sourceTree = "<absolute>"; };
+		95A78CDC19F6A54E008A1F93 /* libboost_iostreams.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_iostreams.a; path = /usr/local/Cellar/boost/1.56.0/lib/libboost_iostreams.a; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +108,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95A78CDD19F6A54E008A1F93 /* libboost_iostreams.a in Frameworks */,
+				95A78CDB19F6A4C2008A1F93 /* libboost_system.a in Frameworks */,
 				95501D0219F29BEF002AEAC4 /* liblog4cpp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,8 +228,9 @@
 		95501D5319F29E63002AEAC4 /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				95A78CDC19F6A54E008A1F93 /* libboost_iostreams.a */,
+				95A78CDA19F6A4C2008A1F93 /* libboost_system.a */,
 				95501D0119F29BEF002AEAC4 /* liblog4cpp.a */,
-				95501CFF19F29B8D002AEAC4 /* liblog4cpp.5.dylib */,
 			);
 			name = lib;
 			sourceTree = "<group>";
@@ -396,7 +402,10 @@
 					"$(inherited)",
 					/usr/local/include,
 				);
-				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib,
+					/usr/local/Cellar/boost/1.56.0/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -408,7 +417,10 @@
 					"$(inherited)",
 					/usr/local/include,
 				);
-				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib,
+					/usr/local/Cellar/boost/1.56.0/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "";
 			};

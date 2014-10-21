@@ -12,7 +12,7 @@
 
 class Assembly {
 private:
-	boost::ptr_vector<boost::ptr_vector<Cell>> cells;
+	boost::ptr_vector<Cell> cells;
 public:
 	Assembly();
 	virtual ~Assembly();

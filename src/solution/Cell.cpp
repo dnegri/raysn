@@ -9,8 +9,11 @@
 #include "../geometry/RegionType.h"
 #include "../quadrature/QuadratureSet.h"
 
-Cell::Cell(FuelCellType& type, XSLibrary& xsl) {
+Cell::Cell(int x, int y, FuelCellType& type, XSLibrary& xsl) {
 
+	this->x = x;
+	this->y = y;
+	
 	this->type = &type;
 	this->xsl  = &xsl;
 
@@ -159,4 +162,13 @@ double Cell::calculateFissionSource() {
 
 	return fissionSource;
 
+}
+
+void Cell::updateCrossSection() {
+
+	for(Region& region : regions) {
+		region.getCrossSection() = xsl->getCrossSection(0);
+	}
+	
+	regions.at(0).getCrossSection() = xsl->getCrossSection(1);
 }

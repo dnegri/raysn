@@ -402,7 +402,7 @@ void FuelCellType::initSurfaceRays() {
 						SurfaceRayPoint& endPoint = ia.findSurfaceRayPoints(
 								cross, width, inews);
 
-						logger.debug("Surface End Point Check: (%f, %f) (%f, %f)", cross.getX(), cross.getY(), endPoint.getX(), endPoint.getY());
+//						logger.debug("Surface End Point Check: (%f, %f) (%f, %f)", cross.getX(), cross.getY(), endPoint.getX(), endPoint.getY());
 						
 						ip.setEndPoint(islope, endPoint);
 						ip.getRay(islope).setLength(length);
@@ -450,7 +450,8 @@ void FuelCellType::initSegments(SurfaceRayPoint& point, int islope,
 			}
 		}
 		
-		logger.debug("Segment: (%f, %f) (%f, %f)", start.getX(), start.getY(), end.getX(), end.getY());
+		plotData.push_back(boost::make_tuple(start.getX(), start.getY()));
+		plotData.push_back(boost::make_tuple(end.getX(), end.getY()));
 
 		if (end == point.getEndPoint(islope))
 			break;
@@ -460,4 +461,3 @@ void FuelCellType::initSegments(SurfaceRayPoint& point, int islope,
 		sub = &(line->getNeighborSubRegion(*sub));
 	}
 }
-

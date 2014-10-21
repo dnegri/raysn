@@ -20,6 +20,10 @@ public:
 	virtual ~XSLibrary();
 
 	void initialize();
+	
+	CrossSection& getCrossSection(int index) {
+		return crossSections.at(index);
+	}
 
 	int getEnergyGroup() const {
 		return energyGroup;

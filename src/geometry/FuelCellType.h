@@ -16,8 +16,8 @@
 #include "Point.h"
 #include "Line.h"
 #include "RegionType.h"
-
-
+#include "XSLibrary.h"
+#include "gnuplot-iostream.h"
 
 
 class FuelCellType : public CellType {
@@ -43,6 +43,9 @@ private:
 	boost::ptr_vector<Point>  points;
 	boost::ptr_vector<Line>   lines;
 	boost::ptr_vector<RegionType> regions;
+	
+public:
+	std::vector<boost::tuple<double, double> > plotData;
 
 public:
 	FuelCellType(const double width, const int nRings, const std::vector<int>& nSubRings, const std::vector<double>& radiuses);

@@ -16,6 +16,7 @@
 #include "geometry/FuelCellType.h"
 #include "solution/Cell.h"
 #include "xs/XSLibrary.h"
+#include "gnuplot-iostream.h"
 
 using namespace log4cpp;
 
@@ -43,13 +44,26 @@ int main(int argc, const char* argv[]) {
 
 	FuelCellType fuelCellType(width, nRings, nSubRings, radiuses);
 	XSLibrary xsl;
+	xsl.initialize();
+	
 	RayInfo rayInfo(4, 8, 0.2);
 
 	fuelCellType.construct(rayInfo);
 
 	Cell cell(fuelCellType, xsl);
-
-	cell.solveOuter(100, 2);
-
+	
+	cell.updateCrossSection();
+	
+	gnuplotio::Gnuplot gp;
+	
+	gp << "set size square\n";
+	gp << "set xrange [0:"<<width<<"]\n";
+	gp << "set yrange [0:"<<width<<"]\n";
+	gp << "plot '-' pt 7 ps 1 lc rgb 'blue' \n";
+	
+	gp.send1d(fuelCellType.plotData);
+	
+	pause();
+	
 	return 0;
 }

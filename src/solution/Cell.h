@@ -17,13 +17,14 @@
 
 class Cell {
 private:
+	int x, y;
 	int initialNEWS = NORTH;
-	const XSLibrary* xsl;
+	XSLibrary* xsl;
 	FuelCellType* type;
 	boost::ptr_vector<Region> regions;
 	CellSurface* surface[NEWS];
 public:
-	Cell(FuelCellType& type, XSLibrary& xsl);
+	Cell(int x, int y, FuelCellType& type, XSLibrary& xsl);
 	virtual ~Cell();
 
 	void solveOuter(int nout, int nInner);
@@ -31,10 +32,20 @@ public:
 	void clearOneGroupFlux(int group);
 	void makeOneGroupFlux(int group);
 	double calculateFissionSource();
+	void updateCrossSection();
 
 	const boost::ptr_vector<Region>& getRegions() const {
 		return regions;
 	}
+
+	int getX() {
+		return x;
+	}
+	
+	int getY() {
+		return y;
+	}
+	
 };
 
 #endif /* CELL_H_ */

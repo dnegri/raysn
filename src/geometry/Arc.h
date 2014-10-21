@@ -41,7 +41,7 @@ public:
 		this->radius = radius;
 	}
 
-	virtual bool cross(const Point& point, double slope, int dirX, int dirY, Point cross, double length) const;
+	virtual bool cross(const Point& point, double& slope, int& dirX, int& dirY, Point& cross, double& length) const;
 
 };
 

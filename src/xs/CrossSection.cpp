@@ -38,3 +38,15 @@ CrossSection::~CrossSection() {
 	delete[] scattering;
 }
 
+void CrossSection::operator=(const CrossSection& crossSection) {
+	for(int i=0;i<energyGroup;i++) {
+		this->transport[i] = crossSection.transport[i];
+		this->nuFission[i] = crossSection.nuFission[i];
+		this->total[i] = crossSection.total[i];
+		this->chi[i] = crossSection.chi[i];
+		
+		for(int j=0;j<energyGroup;j++) {
+			this->scattering[i][j] = crossSection.scattering[i][j];
+		}
+	}
+}

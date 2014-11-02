@@ -21,6 +21,8 @@ public:
 	Point(double x, double y);
 	virtual ~Point();
 
+	double getValue(int direction);
+
 	virtual bool operator==(const Point& p2) {
 		bool equal = fabs(this->x - p2.x) < MICRO && fabs(this->y - p2.y) < MICRO;
 		return equal;

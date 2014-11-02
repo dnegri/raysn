@@ -9,7 +9,7 @@
 
 
 
-AzimuthalAngle::AzimuthalAngle() : surfacePoints() {
+AzimuthalAngle::AzimuthalAngle(int index) : index(index) {
 	angle	 = 0.0;
 	vsine	 = 0.0;
 	vcosine	 = 0.0;
@@ -40,14 +40,6 @@ void AzimuthalAngle::setRayspace(double rayspace) {
 	this->rayspace = rayspace;
 }
 
-boost::ptr_vector<SurfaceRayPoint>& AzimuthalAngle::getSurfacePoints() {
-	return surfacePoints;
-}
-
-void AzimuthalAngle::addSurfaceRayPoint(SurfaceRayPoint& point) {
-	surfacePoints.push_back(&point);
-}
-
 double AzimuthalAngle::getCosine()  const {
 	return vcosine;
 }
@@ -67,31 +59,5 @@ double AzimuthalAngle::getWeight()  const {
 void AzimuthalAngle::setWeight(double weight) {
 	this->weight = weight;
 }
-
-SurfaceRayPoint& AzimuthalAngle::findSurfaceRayPoints(const Point & point, const double width, const int surface) {
-
-	int	   index = 0;
-
-	double dx = width/nPointX;
-	double dy = width/nPointY;
-
-	switch(surface) {
-	case NORTH:
-		index = round(point.getX() / dx - 0.5);
-		break;
-	case SOUTH:
-		index = nPointX + round(point.getX() / dx  - 0.5);
-		break;
-	case WEST:
-		index = 2*nPointX + round(point.getY() / dy  - 0.5);
-		break;
-	case EAST:
-		index = 2*nPointX + nPointY + round(point.getY() / dy  - 0.5);
-		break;
-	}
-
-	return surfacePoints.at(index);
-}
-
 
 

@@ -15,6 +15,7 @@
 
 class Segment {
 private:
+	static int count;
 	double		   length;
 	SubRegionType& subRegion;
 
@@ -34,7 +35,6 @@ public:
 		return subRegion;
 	}
 };
-
 
 
 #endif /* SEGMENT_H_ */

@@ -12,57 +12,31 @@
 #include "SurfaceRay.h"
 #include "Point.h"
 
-static const int POSITIVE = 0;
-static const int NEGATIVE = 1;
-static const int NSLOPE	  = 2;
-
+class CellTypeSurface;
 
 class SurfaceRayPoint : public Point {
 
 private:
-	int				 inews;
-	Line*			 cellSurface;
+	int				 index;
 	Line*			 subRegionSurface;
-	SurfaceRayPoint* endPoints[NSLOPE];
 	SubRegionType*	 subRegion;
 	SurfaceRay		 ray[NSLOPE];
-
-	struct Direction {
-		int x;
-		int y;
-	};
-	Direction dir[NSLOPE];
+	CellTypeSurface* surface;
 
 
 public:
-	SurfaceRayPoint();
+	SurfaceRayPoint(CellTypeSurface& surface);
 	virtual ~SurfaceRayPoint();
-
+	
 	SurfaceRay& getRay(int islope) {
 		return ray[islope];
 	}
 
-	Line& getSurface() {
-		return *cellSurface;
+	CellTypeSurface& getSurface() {
+		return *surface;
 	}
-
-	Direction& getDirection(int islope) {
-		return dir[islope];
-	}
-
-	void setCellSurface(Line& surface, int inews);
-
-	void setEndPoint(int islope, SurfaceRayPoint& point);
-
-	SurfaceRayPoint& getEndPoint(int islope) {
-		return *endPoints[islope];
-	}
-
-	int getNEWS() {
-		return inews;
-	}
-
-	const Line& getSubRegionSurface() const {
+	
+	Line& getSubRegionSurface() const {
 		return *subRegionSurface;
 	}
 
@@ -76,6 +50,14 @@ public:
 
 	void setSubRegion(SubRegionType& subRegion) {
 		this->subRegion = &subRegion;
+	}
+	
+	int getIndex() {
+		return index;
+	}
+	
+	void setIndex(int index) {
+		this->index = index;
 	}
 };
 

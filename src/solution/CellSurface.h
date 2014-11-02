@@ -8,21 +8,33 @@
 #ifndef SOLUTION_CELLSURFACE_H_
 #define SOLUTION_CELLSURFACE_H_
 
-#include "../geometry/FuelCellType.h"
+#include "../pch.h"
+#include "../geometry/CellTypeSurface.h"
+#include "../geometry/CellType.h"
 #include "../xs/XSLibrary.h"
+
+typedef boost::multi_array<std::vector<double>, 4> SurfaceAngularFlux;
 
 class CellSurface {
 private:
-	int					   nAngles;
-	int					   nPolar;
-	std::vector<double**>* angFlux;
+	boost::ptr_vector<CellTypeSurface> types;
+	SurfaceAngularFlux* angularFlux;
+//	boost::ptr_vector<boost::ptr_vector<boost::ptr_vector<boost::ptr_vector<double*>>>> angFlux; //group, angle, point, islope, polar
 
 public:
-	CellSurface(FuelCellType& type, XSLibrary& xsl, int dirxy);
+	CellSurface();
+	CellSurface(CellType& type, XSLibrary& xsl, int dirxy);
 	virtual ~CellSurface();
 
-	std::vector<double**>& getAngFlux(int iAngle) {
-		return angFlux[iAngle];
+	double getAngFlux(int igroup, AzimuthalAngle& angle, SurfaceRayPoint& point, int islope, int ipolar);
+	void setAngFlux(int igroup, AzimuthalAngle& angle, SurfaceRayPoint& point, int islope, int ipolar, double angFlux);
+	
+	CellTypeSurface& getType(int selfneib) {
+		return types.at(selfneib);
+	}
+	
+	void setType(int selfneib, CellTypeSurface& type) {
+		types.replace(selfneib, &type);
 	}
 };
 

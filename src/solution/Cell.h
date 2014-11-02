@@ -9,22 +9,28 @@
 #define CELL_H_
 
 #include "../pch.h"
-#include "../geometry/FuelCellType.h"
+#include "../geometry/CellType.h"
 #include "../geometry/CellTypeSurface.h"
 #include "../xs/XSLibrary.h"
 #include "Region.h"
 #include "CellSurface.h"
+#include "gnuplot-iostream.h"
 
 class Cell {
 private:
-	int						  x, y;
-	int						  initialNEWS = NORTH;
-	XSLibrary*				  xsl;
-	FuelCellType*			  type;
-	boost::ptr_vector<Region> regions;
-	CellSurface*			  surface[NEWS];
+	int						  		x, y;
+	XSLibrary*				  		xsl;
+	CellType*			  			type;
+	boost::ptr_vector<Region> 		regions;
+	boost::ptr_vector<CellSurface>  surfaces;
+	boost::ptr_vector<Cell> 		neighbor;
+
 public:
-	Cell(int x, int y, FuelCellType& type, XSLibrary& xsl);
+	std::vector<boost::tuple<double, double> > plotData;
+
+public:
+	Cell();
+	Cell(int x, int y, CellType& type, XSLibrary& xsl);
 	virtual ~Cell();
 
 	void   solveOuter(int nout, int nInner);
@@ -34,6 +40,14 @@ public:
 	double calculateFissionSource();
 	void   updateCrossSection();
 
+	void setSurface(int news, CellSurface& surface) {
+		surfaces.replace(news, &surface);
+	}
+
+	CellSurface& getSurface(int news) {
+		return surfaces.at(news);
+	}
+	
 	const boost::ptr_vector<Region>& getRegions() const {
 		return regions;
 	}

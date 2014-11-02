@@ -20,6 +20,7 @@ class SubRegionType {
 private:
 	int						index;
 	double					volume;
+	double					segmentVolume = 0.0;
 	RegionType&				region;
 	boost::ptr_vector<Line> edges;
 
@@ -43,6 +44,14 @@ public:
 
 	void setVolume(double volume) {
 		this->volume = volume;
+	}
+	
+	void addSegmentVolume(double segmentVolume) {
+		this->segmentVolume += segmentVolume;
+	}
+
+	double getSegmentFactor() {
+		return volume / segmentVolume;
 	}
 
 	int getIndex() const {

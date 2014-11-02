@@ -9,7 +9,7 @@
 
 
 
-CellType::CellType() : logger(log4cpp::Category::getInstance("CellType")){
+CellType::CellType(double xsize, double ysize) : xsize(xsize), ysize(ysize), logger(log4cpp::Category::getInstance("CellType")){
 }
 
 CellType::~CellType() {

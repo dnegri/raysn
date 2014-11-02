@@ -34,6 +34,11 @@ public:
 		return *crossSection;
 	}
 
+	void setCrossSection(CrossSection& xs) {
+		crossSection = &xs;
+	}
+
+
 	SubRegion& getSubRegion(int index)  {
 		return subRegions.at(index);
 	}

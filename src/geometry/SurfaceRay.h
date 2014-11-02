@@ -11,12 +11,13 @@
 #include "../pch.h"
 #include "Segment.h"
 
-
+class SurfaceRayPoint;
 
 class SurfaceRay {
 private:
 	double					   length;
 	boost::ptr_vector<Segment> segments;
+	SurfaceRayPoint* 		   endPoint;
 
 public:
 	SurfaceRay();
@@ -32,6 +33,14 @@ public:
 
 	boost::ptr_vector<Segment>& getSegments() {
 		return segments;
+	}
+
+	SurfaceRayPoint& getEndPoint() {
+		return *endPoint;
+	}
+
+	void setEndPoint(SurfaceRayPoint& point) {
+		endPoint = &point;
 	}
 
 	void addSegment(Segment& segment);

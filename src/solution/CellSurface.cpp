@@ -8,62 +8,69 @@
 #include "CellSurface.h"
 #include "../quadrature/QuadratureSet.h"
 
-CellSurface::CellSurface(FuelCellType& type, XSLibrary& xsl, int dirxy) {
+CellSurface::CellSurface() {}
 
-	nAngles = type.getAngles().size();
-	nPolar	= QuadratureSet::getInstance().getNPolarAngles();
 
-	angFlux = new std::vector<double **>[nAngles];
+CellSurface::CellSurface(CellType& type, XSLibrary& xsl, int dirxy) {
 
-	for(int i=0; i<type.getAngles().size(); i++) {
-
+	int nAngles = (int)type.getAngles().size();
+	int nPolar	= QuadratureSet::getInstance().getNPolarAngles();
+	
+	angularFlux = new SurfaceAngularFlux(boost::extents	[xsl.getEnergyGroup()]
+														[type.getAngles().size()]
+														[nPolar]
+														[NSLOPE]);
+	for(int ig=0; ig < xsl.getEnergyGroup(); ig++) {
+	for(int ia=0; ia < nAngles; ia++) {
+	for(int k=0; k<nPolar; k++) {
+	for(int is=0; is < NSLOPE; is++) {
 		int nPoint = 0;
 
 		switch(dirxy) {
 		case DIRX:
-			nPoint = type.getAngles().at(i).getPointX();
+			nPoint = type.getAngles().at(ia).getPointX();
 			break;
 		case DIRY:
-			nPoint = type.getAngles().at(i).getPointY();
+			nPoint = type.getAngles().at(ia).getPointY();
 			break;
 		}
+		
+		std::vector<double>* flux = new std::vector<double>();
+		for(int p=0; p<nPoint; ++p) flux->push_back(1.0);
+		
+		(*angularFlux)[ig][ia][k][is] = *flux;
 
-		angFlux[i].resize(nPoint);
-
-		//TODO check angflux is destroyed when finishing
-
-		for(int j=0; j<nPoint; j++) {
-
-			double ** aFlux = new double*[nPolar];
-
-			for(int k=0; k<nPolar; k++) {
-				aFlux[k] = new double[xsl.getEnergyGroup()];
-				for(int l=0; l<nPolar; l++) {
-					aFlux[k][l] = 1.0;
-				}
-			}
-
-			angFlux[i].push_back(aFlux);
-		}
-	}
-
+	}}}}
+	
+	types.resize(SELFNEIB);
+	
 }
 
 CellSurface::~CellSurface() {
-
-	for(int i=0; i<nAngles; i++) {
-
-		for(int j=0; j<angFlux[i].size(); j++) {
-
-			double ** aFlux = angFlux[i].at(j);
-
-			for(int k=0; k< nPolar; k++) {
-				delete [] aFlux[k];
-			}
-			delete [] aFlux;
-
-		}
+	if(angularFlux != NULL)
+	for(int i=0; i<angularFlux->num_elements(); i++) {
+		delete (*angularFlux)[i]     .origin();
 	}
-
 }
+
+
+double CellSurface::getAngFlux(int igroup, AzimuthalAngle& angle, SurfaceRayPoint& point, int islope, int ipolar) {
+	int ia = angle.getIndex();
+	int ip = point.getIndex();
+	
+	std::vector<double>& v = (*angularFlux)[igroup][ia][ipolar][islope];
+	
+	return v.at(ip);
+}
+
+void CellSurface::setAngFlux(int igroup, AzimuthalAngle& angle, SurfaceRayPoint& point, int islope, int ipolar, double angFlux) {
+	
+	int ia = angle.getIndex();
+	int ip = point.getIndex();
+	
+	std::vector<double>& v = (*angularFlux)[igroup][ia][ipolar][islope];
+	
+	v.at(ip) = angFlux;
+}
+
 

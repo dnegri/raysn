@@ -16,6 +16,7 @@
 class AzimuthalAngle {
 
 private:
+	int								   index;
 	int								   nPointX;
 	int								   nPointY;
 
@@ -26,19 +27,14 @@ private:
 	double							   rayspace;
 	double							   weight;
 
-	boost::ptr_vector<SurfaceRayPoint> surfacePoints;
-
 public:
-	AzimuthalAngle();
+	AzimuthalAngle(int index);
 	virtual ~AzimuthalAngle();
 
 
 	double getRayspace() const;
 	void   setRayspace(double rayspace);
 
-	boost::ptr_vector<SurfaceRayPoint>& getSurfacePoints();
-	void								addSurfaceRayPoint(SurfaceRayPoint& point);
-	SurfaceRayPoint&					findSurfaceRayPoints(const Point & point, const double width, const int surface);
 
 	void setAngle(double angle);
 	void setWeight(double weight);
@@ -63,6 +59,10 @@ public:
 
 	void setPointY(int pointY) {
 		nPointY = pointY;
+	}
+	
+	int getIndex() {
+		return index;
 	}
 };
 

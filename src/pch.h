@@ -11,6 +11,8 @@
 #define LOG4CPP_FIX_ERROR_COLLISION
 
 #include <boost/ptr_container/ptr_vector.hpp>
+#include <boost/ptr_container/ptr_map.hpp>
+#include "boost/multi_array.hpp"
 
 #include <array>
 #include <numeric>
@@ -34,6 +36,15 @@ static const int	LEFTRIGHT = 2;
 static const int	FORWARD	 = 0;
 static const int	BACKWARD = 1;
 static const int	NFORBACK = 2;
+
+static const int 	POSITIVE = 0;
+static const int	NEGATIVE = 1;
+static const int 	NSLOPE	 = 2;
+
+static const int	SELF  		= 0;
+static const int	NEIB  		= 1;
+static const int	SELFNEIB  	= 2;
+
 
 static const int	NW = 0;
 static const int	NE = 1;

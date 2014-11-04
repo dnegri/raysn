@@ -11,7 +11,7 @@
 #include "../geometry/SubRegionType.h"
 #include "../xs/CrossSection.h"
 
-class SubRegion {
+class SubRegion  : public RaysnClass {
 private:
 	SubRegionType* type;
 	double *	   flux;

@@ -12,7 +12,7 @@
 
 
 
-class Point {
+class Point : public RaysnClass {
 private:
 	double x, y;
 
@@ -27,7 +27,12 @@ public:
 		bool equal = fabs(this->x - p2.x) < MICRO && fabs(this->y - p2.y) < MICRO;
 		return equal;
 	}
-
+	
+	void operator=(const Point& p2) {
+		this->x = p2.x;
+		this->y = p2.y;
+	}
+	
 	Point& operator+=(const Point& p2) {
 		this->x += p2.x;
 		this->y += p2.y;

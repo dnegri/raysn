@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9528A53619FA43AC0053AE51 /* Core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9528A53419FA43AC0053AE51 /* Core.cpp */; };
 		9528A53919FA480D0053AE51 /* Problem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9528A53719FA480D0053AE51 /* Problem.cpp */; };
+		954547611A0708AE001824AA /* RaysnClass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9545475F1A0708AE001824AA /* RaysnClass.cpp */; };
 		95501D0219F29BEF002AEAC4 /* liblog4cpp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95501D0119F29BEF002AEAC4 /* liblog4cpp.a */; };
 		95501D3A19F29D7C002AEAC4 /* Arc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95501D0919F29D7C002AEAC4 /* Arc.cpp */; };
 		95501D3B19F29D7C002AEAC4 /* AzimuthalAngle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95501D0B19F29D7C002AEAC4 /* AzimuthalAngle.cpp */; };
@@ -56,6 +57,8 @@
 		9528A53519FA43AC0053AE51 /* Core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
 		9528A53719FA480D0053AE51 /* Problem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Problem.cpp; sourceTree = "<group>"; };
 		9528A53819FA480D0053AE51 /* Problem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Problem.h; sourceTree = "<group>"; };
+		9545475F1A0708AE001824AA /* RaysnClass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RaysnClass.cpp; path = src/RaysnClass.cpp; sourceTree = "<group>"; };
+		954547601A0708AE001824AA /* RaysnClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RaysnClass.h; path = src/RaysnClass.h; sourceTree = "<group>"; };
 		95501CEC19F293D1002AEAC4 /* raysn */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = raysn; sourceTree = BUILT_PRODUCTS_DIR; };
 		95501CEF19F293D1002AEAC4 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = "<group>"; };
 		95501CFA19F29567002AEAC4 /* pch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = pch.h; path = src/pch.h; sourceTree = "<group>"; };
@@ -234,6 +237,8 @@
 				95501D2719F29D7C002AEAC4 /* quadrature */,
 				95501D2A19F29D7C002AEAC4 /* solution */,
 				95501D3519F29D7C002AEAC4 /* xs */,
+				9545475F1A0708AE001824AA /* RaysnClass.cpp */,
+				954547601A0708AE001824AA /* RaysnClass.h */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -307,6 +312,7 @@
 			files = (
 				95501D5119F29E3B002AEAC4 /* main.cpp in Sources */,
 				95501D4219F29D7C002AEAC4 /* RayInfo.cpp in Sources */,
+				954547611A0708AE001824AA /* RaysnClass.cpp in Sources */,
 				95501D4419F29D7C002AEAC4 /* Segment.cpp in Sources */,
 				95501D4819F29D7C002AEAC4 /* SurfaceRayPoint.cpp in Sources */,
 				95501D4D19F29D7C002AEAC4 /* Region.cpp in Sources */,

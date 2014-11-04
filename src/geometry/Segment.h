@@ -13,7 +13,7 @@
 
 
 
-class Segment {
+class Segment  : public RaysnClass {
 private:
 	static int count;
 	double		   length;

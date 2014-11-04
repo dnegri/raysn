@@ -12,7 +12,7 @@
 #include "../pch.h"
 #include "Assembly.h"
 
-class Core {
+class Core  : public RaysnClass {
 private:
 	int nxa, nya;
 	std::vector<int> rowa;

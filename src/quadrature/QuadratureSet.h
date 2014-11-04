@@ -8,7 +8,9 @@
 #ifndef QUADRATURESET_H_
 #define QUADRATURESET_H_
 
-class QuadratureSet {
+#include "../pch.h"
+
+class QuadratureSet  : public RaysnClass {
 
 private:
 	int		nPolarAngles;

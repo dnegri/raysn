@@ -9,7 +9,7 @@
 
 
 
-Shape::Shape() : logger(log4cpp::Category::getInstance("Shape")) {
+Shape::Shape() {
 
 }
 

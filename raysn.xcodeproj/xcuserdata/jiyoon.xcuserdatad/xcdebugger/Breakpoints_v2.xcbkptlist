@@ -24,15 +24,30 @@
          <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
+            condition = "test == 298"
             continueAfterRunningActions = "No"
             filePath = "src/solution/Cell.cpp"
-            timestampString = "436635346.303904"
+            timestampString = "436711363.356581"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "Cell::solveOuter(int nout, int nInner)"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "Cell::solveInner(int nInner, double reigv)"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "src/geometry/FuelCellType.h"
+            timestampString = "436709741.803538"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -41,13 +56,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "src/solution/Cell.cpp"
-            timestampString = "436635752.556779"
+            filePath = "src/solution/Assembly.cpp"
+            timestampString = "436760565.509738"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
-            landmarkName = "Cell::solveInner(int nInner, double reigv)"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "Assembly::construct(boost::ptr_vector&lt;CellType&gt;&amp; cellTypes, XSLibrary&amp; xsl)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

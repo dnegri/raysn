@@ -13,7 +13,7 @@
 
 
 
-class RegionType {
+class RegionType  : public RaysnClass {
 
 private:
 	int								 index;

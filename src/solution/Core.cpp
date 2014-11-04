@@ -19,7 +19,7 @@ Core::~Core() {
 
 
 void Core::construct(boost::ptr_vector<CellType>& cellTypes, XSLibrary& xsl) {
-	Assembly* assembly = new Assembly(0,0,1,1);
+	Assembly* assembly = new Assembly(0,0,2,2);
 	assembly->construct(cellTypes, xsl);
 	this->addAssembly(*assembly);
 	

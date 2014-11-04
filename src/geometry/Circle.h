@@ -13,7 +13,7 @@
 
 
 
-class Circle {
+class Circle  : public RaysnClass {
 
 private:
 	const Point& center;

@@ -11,8 +11,7 @@
 #include "../pch.h"
 
 
-
-class RayInfo {
+class RayInfo  : public RaysnClass {
 private:
 	int	   nAziAngles;
 	int	   nAziAnglesX2;

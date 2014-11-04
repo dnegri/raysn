@@ -8,7 +8,6 @@
 
 #include "Problem.h"
 #include "FuelCellType.h"
-#include "gnuplot-iostream.h"
 
 Problem::Problem() {
 }

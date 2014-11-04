@@ -16,10 +16,7 @@
 #include "CellTypeSurface.h"
 #include "RayInfo.h"
 
-class CellType {
-
-public:
-	log4cpp::Category& logger;
+class CellType : public RaysnClass {
 	
 protected:
 	double xsize;

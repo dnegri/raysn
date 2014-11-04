@@ -10,7 +10,7 @@
 #include "../pch.h"
 
 
-class CrossSection {
+class CrossSection  : public RaysnClass {
 private:
 	int		 energyGroup;
 	double*	 nuFission;

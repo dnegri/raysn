@@ -15,7 +15,7 @@
 #include "../geometry/RayInfo.h"
 #include "Core.h"
 
-class Problem {
+class Problem  : public RaysnClass {
 private:
 	boost::ptr_vector<CellType> cellTypes;
 	RayInfo						rayInfo;

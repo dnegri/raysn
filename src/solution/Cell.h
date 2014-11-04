@@ -16,7 +16,7 @@
 #include "CellSurface.h"
 #include "gnuplot-iostream.h"
 
-class Cell {
+class Cell  : public RaysnClass {
 private:
 	int						  		x, y;
 	XSLibrary*				  		xsl;

@@ -12,7 +12,7 @@
 #include "Cell.h"
 #include "CellSurface.h"
 
-class Assembly {
+class Assembly  : public RaysnClass {
 private:
 	int x;
 	int y;
@@ -20,6 +20,7 @@ private:
 	int nyc;
 	boost::ptr_vector<CellSurface> 	surfaces;
 	boost::ptr_map<int, Cell> 		cells;
+	std::map<int, int> 		indexOfCellTypes;
 	
 	
 private:
@@ -30,12 +31,14 @@ public:
 	Assembly(int x, int y, int nxc, int nyc);
 	virtual ~Assembly();
 	
+	void initialize();
 	void construct(boost::ptr_vector<CellType>& cellTypes, XSLibrary& xsl);
 	void solve();
 	
 	int getX() const {return x;}
 	int getY() const {return y;}
-	
+
+	void defineCellType(int x, int y, int indexOfCellType);
 	void addCell(Cell& cell);
 	Cell& getCell(int x, int y);
 	

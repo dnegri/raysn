@@ -21,6 +21,7 @@
 #include <iostream>
 
 #include "log4cpp/Category.hh"
+#include "RaysnClass.h"
 
 static const int	PLUS  = 1;
 static const int	MINUS = -1;

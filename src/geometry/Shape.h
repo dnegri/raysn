@@ -12,9 +12,7 @@
 
 
 
-class Shape {
-public:
-	log4cpp::Category& logger;
+class Shape  : public RaysnClass {
 
 public:
 	Shape();

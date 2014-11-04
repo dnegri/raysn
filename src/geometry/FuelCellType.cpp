@@ -319,6 +319,7 @@ void FuelCellType::initRegions() {
 	for (int idiv = 0; idiv < NDIVREG; idiv++) {
 		SubRegionType* sub = new SubRegionType(*region);
 
+		sub->setIndex(idiv);
 		sub->setVolume(subVolume);
 
 		int idxLine = nCircles * 2 * NDIVREG;

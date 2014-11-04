@@ -11,7 +11,7 @@
 CellSurface::CellSurface() {}
 
 
-CellSurface::CellSurface(CellType& type, XSLibrary& xsl, int dirxy) {
+CellSurface::CellSurface(int index, CellType& type, XSLibrary& xsl, int dirxy) : index(index) {
 
 	int nAngles = (int)type.getAngles().size();
 	int nPolar	= QuadratureSet::getInstance().getNPolarAngles();

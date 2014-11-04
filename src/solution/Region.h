@@ -12,7 +12,7 @@
 #include "../xs/CrossSection.h"
 #include "SubRegion.h"
 
-class Region {
+class Region  : public RaysnClass {
 private:
 	RegionType*					 type;
 	CrossSection*				 crossSection;
@@ -41,6 +41,10 @@ public:
 
 	SubRegion& getSubRegion(int index)  {
 		return subRegions.at(index);
+	}
+	
+	boost::ptr_vector<SubRegion>& getSubRegions()  {
+		return subRegions;
 	}
 };
 

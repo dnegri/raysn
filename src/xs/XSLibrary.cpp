@@ -34,8 +34,8 @@ void XSLibrary::initialize() {
 
 	xs = new CrossSection(energyGroup);
 
-	xs->getTransport()[0] = 2.706530E-02;
-	xs->getNuFission()[0] = 2.806530E-02;
+	xs->getTransport()[0] = 2.506530E-02;
+	xs->getNuFission()[0] = 2.506530E-02;
 
 	xs->getChi()[0]	= 1.000000E+00;
 

@@ -15,15 +15,16 @@
 
 typedef boost::multi_array<std::vector<double>, 4> SurfaceAngularFlux;
 
-class CellSurface {
+class CellSurface  : public RaysnClass {
 private:
+	int index;
 	boost::ptr_vector<CellTypeSurface> types;
 	SurfaceAngularFlux* angularFlux;
 //	boost::ptr_vector<boost::ptr_vector<boost::ptr_vector<boost::ptr_vector<double*>>>> angFlux; //group, angle, point, islope, polar
 
 public:
 	CellSurface();
-	CellSurface(CellType& type, XSLibrary& xsl, int dirxy);
+	CellSurface(int index, CellType& type, XSLibrary& xsl, int dirxy);
 	virtual ~CellSurface();
 
 	double getAngFlux(int igroup, AzimuthalAngle& angle, SurfaceRayPoint& point, int islope, int ipolar);
@@ -35,6 +36,14 @@ public:
 	
 	void setType(int selfneib, CellTypeSurface& type) {
 		types.replace(selfneib, &type);
+	}
+	
+	void setIndex(int index) {
+		this->index = index;
+	}
+	
+	int getIndex() {
+		return index;
 	}
 };
 

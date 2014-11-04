@@ -10,7 +10,7 @@
 #include "../pch.h"
 #include "CrossSection.h"
 
-class XSLibrary {
+class XSLibrary  : public RaysnClass {
 private:
 	int								energyGroup;
 	boost::ptr_vector<CrossSection> crossSections;

@@ -17,8 +17,8 @@ class SubRegionType;
 
 class Line : public Shape {
 protected:
-	Point*		   beginPoint;
-	Point*		   endPoint;
+	const Point*		   beginPoint;
+	const Point*		   endPoint;
 	SubRegionType* subRegions[2];
 
 public:
@@ -33,8 +33,8 @@ public:
 		return *endPoint;
 	}
 
-	void setBeginPoint(Point& beginPoint);
-	void setEndPoint(Point& endPoint);
+	void setBeginPoint(const Point& beginPoint);
+	void setEndPoint(const Point& endPoint);
 
 	virtual bool cross(const Point& point, double& slope, int& dirX, int& dirY, Point& cross, double& length) const;
 

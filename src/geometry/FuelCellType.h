@@ -22,10 +22,11 @@
 
 class FuelCellType : public CellType {
 private:
-	int								  nRings;
-	double							  width;
-	std::vector<int>				  nSubRings;
-	std::vector<double>				  radiuses;
+	int								  	nRings;
+	double							  	width;
+	std::vector<int>				  	nSubRings;
+	std::vector<double>				  	radiuses;
+	std::vector<std::string>			xsNames;
 
 	Point							  center;
 
@@ -39,7 +40,11 @@ public:
 	std::vector<boost::tuple<double, double> > plotData;
 
 public:
-	FuelCellType(const double width, const int nRings, const std::vector<int>& nSubRings, const std::vector<double>& radiuses);
+	FuelCellType(const double width, const int nRings,
+					const std::vector<int>& nSubRings,
+					const std::vector<double>& radiuses,
+					const std::vector<std::string>& xsName);
+	
 	virtual ~FuelCellType();
 
 	void construct(RayInfo& ri);

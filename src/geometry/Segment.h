@@ -23,7 +23,7 @@ public:
 	Segment(SubRegionType& sub, double length);
 	virtual ~Segment();
 
-	double getLength() {
+	double getLength() const {
 		return length;
 	}
 
@@ -31,6 +31,10 @@ public:
 		this->length = length;
 	}
 
+	const SubRegionType& getSubRegion() const {
+		return subRegion;
+	}
+	
 	SubRegionType& getSubRegion() {
 		return subRegion;
 	}

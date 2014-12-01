@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		952234DF1A19B90900748DB0 /* C5G7Library.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 952234DD1A19B90900748DB0 /* C5G7Library.cpp */; };
 		9528A53619FA43AC0053AE51 /* Core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9528A53419FA43AC0053AE51 /* Core.cpp */; };
 		9528A53919FA480D0053AE51 /* Problem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9528A53719FA480D0053AE51 /* Problem.cpp */; };
+		952BFBD31A1DB37200F686D2 /* AssemblyType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 952BFBD11A1DB37200F686D2 /* AssemblyType.cpp */; };
+		952BFBD61A1DC5A700F686D2 /* C5G7Problem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 952BFBD41A1DC5A700F686D2 /* C5G7Problem.cpp */; };
 		954547611A0708AE001824AA /* RaysnClass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9545475F1A0708AE001824AA /* RaysnClass.cpp */; };
+		9545476D1A0BB939001824AA /* MatrixVectorOperation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9545476B1A0BB939001824AA /* MatrixVectorOperation.cpp */; };
 		95501D0219F29BEF002AEAC4 /* liblog4cpp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95501D0119F29BEF002AEAC4 /* liblog4cpp.a */; };
 		95501D3A19F29D7C002AEAC4 /* Arc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95501D0919F29D7C002AEAC4 /* Arc.cpp */; };
 		95501D3B19F29D7C002AEAC4 /* AzimuthalAngle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95501D0B19F29D7C002AEAC4 /* AzimuthalAngle.cpp */; };
@@ -38,6 +42,7 @@
 		95A78CDB19F6A4C2008A1F93 /* libboost_system.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95A78CDA19F6A4C2008A1F93 /* libboost_system.a */; };
 		95A78CDD19F6A54E008A1F93 /* libboost_iostreams.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95A78CDC19F6A54E008A1F93 /* libboost_iostreams.a */; };
 		95C1E33019FF88D90049F69C /* libboost_container.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C1E32F19FF88D90049F69C /* libboost_container.a */; };
+		95F877821A1F33A90027C43B /* BoundaryCondition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 95F877801A1F33A90027C43B /* BoundaryCondition.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -53,12 +58,20 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		952234DD1A19B90900748DB0 /* C5G7Library.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = C5G7Library.cpp; sourceTree = "<group>"; };
+		952234DE1A19B90900748DB0 /* C5G7Library.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = C5G7Library.h; sourceTree = "<group>"; };
 		9528A53419FA43AC0053AE51 /* Core.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Core.cpp; sourceTree = "<group>"; };
 		9528A53519FA43AC0053AE51 /* Core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
 		9528A53719FA480D0053AE51 /* Problem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Problem.cpp; sourceTree = "<group>"; };
 		9528A53819FA480D0053AE51 /* Problem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Problem.h; sourceTree = "<group>"; };
+		952BFBD11A1DB37200F686D2 /* AssemblyType.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AssemblyType.cpp; sourceTree = "<group>"; };
+		952BFBD21A1DB37200F686D2 /* AssemblyType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssemblyType.h; sourceTree = "<group>"; };
+		952BFBD41A1DC5A700F686D2 /* C5G7Problem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = C5G7Problem.cpp; sourceTree = "<group>"; };
+		952BFBD51A1DC5A700F686D2 /* C5G7Problem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = C5G7Problem.h; sourceTree = "<group>"; };
 		9545475F1A0708AE001824AA /* RaysnClass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RaysnClass.cpp; path = src/RaysnClass.cpp; sourceTree = "<group>"; };
 		954547601A0708AE001824AA /* RaysnClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RaysnClass.h; path = src/RaysnClass.h; sourceTree = "<group>"; };
+		9545476B1A0BB939001824AA /* MatrixVectorOperation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MatrixVectorOperation.cpp; sourceTree = "<group>"; };
+		9545476C1A0BB939001824AA /* MatrixVectorOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatrixVectorOperation.h; sourceTree = "<group>"; };
 		95501CEC19F293D1002AEAC4 /* raysn */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = raysn; sourceTree = BUILT_PRODUCTS_DIR; };
 		95501CEF19F293D1002AEAC4 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = "<group>"; };
 		95501CFA19F29567002AEAC4 /* pch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = pch.h; path = src/pch.h; sourceTree = "<group>"; };
@@ -112,6 +125,8 @@
 		95A78CDA19F6A4C2008A1F93 /* libboost_system.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_system.a; path = /usr/local/Cellar/boost/1.56.0/lib/libboost_system.a; sourceTree = "<absolute>"; };
 		95A78CDC19F6A54E008A1F93 /* libboost_iostreams.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_iostreams.a; path = /usr/local/Cellar/boost/1.56.0/lib/libboost_iostreams.a; sourceTree = "<absolute>"; };
 		95C1E32F19FF88D90049F69C /* libboost_container.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_container.a; path = /usr/local/Cellar/boost/1.56.0/lib/libboost_container.a; sourceTree = "<absolute>"; };
+		95F877801A1F33A90027C43B /* BoundaryCondition.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BoundaryCondition.cpp; sourceTree = "<group>"; };
+		95F877811A1F33A90027C43B /* BoundaryCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoundaryCondition.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +144,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9545476A1A0BB939001824AA /* util */ = {
+			isa = PBXGroup;
+			children = (
+				9545476B1A0BB939001824AA /* MatrixVectorOperation.cpp */,
+				9545476C1A0BB939001824AA /* MatrixVectorOperation.h */,
+			);
+			name = util;
+			path = src/util;
+			sourceTree = "<group>";
+		};
 		95501CE319F293D1002AEAC4 = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +204,8 @@
 				95501D2419F29D7C002AEAC4 /* SurfaceRay.h */,
 				95501D2519F29D7C002AEAC4 /* SurfaceRayPoint.cpp */,
 				95501D2619F29D7C002AEAC4 /* SurfaceRayPoint.h */,
+				952BFBD11A1DB37200F686D2 /* AssemblyType.cpp */,
+				952BFBD21A1DB37200F686D2 /* AssemblyType.h */,
 			);
 			name = geometry;
 			path = src/geometry;
@@ -211,6 +238,10 @@
 				95501D3419F29D7C002AEAC4 /* SubRegion.h */,
 				9528A53719FA480D0053AE51 /* Problem.cpp */,
 				9528A53819FA480D0053AE51 /* Problem.h */,
+				952BFBD41A1DC5A700F686D2 /* C5G7Problem.cpp */,
+				952BFBD51A1DC5A700F686D2 /* C5G7Problem.h */,
+				95F877801A1F33A90027C43B /* BoundaryCondition.cpp */,
+				95F877811A1F33A90027C43B /* BoundaryCondition.h */,
 			);
 			name = solution;
 			path = src/solution;
@@ -219,6 +250,8 @@
 		95501D3519F29D7C002AEAC4 /* xs */ = {
 			isa = PBXGroup;
 			children = (
+				952234DD1A19B90900748DB0 /* C5G7Library.cpp */,
+				952234DE1A19B90900748DB0 /* C5G7Library.h */,
 				95501D3619F29D7C002AEAC4 /* CrossSection.cpp */,
 				95501D3719F29D7C002AEAC4 /* CrossSection.h */,
 				95501D3819F29D7C002AEAC4 /* XSLibrary.cpp */,
@@ -231,6 +264,7 @@
 		95501D5219F29E55002AEAC4 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				9545476A1A0BB939001824AA /* util */,
 				95501CFA19F29567002AEAC4 /* pch.h */,
 				95501CEF19F293D1002AEAC4 /* main.cpp */,
 				95501D0819F29D7C002AEAC4 /* geometry */,
@@ -313,11 +347,13 @@
 				95501D5119F29E3B002AEAC4 /* main.cpp in Sources */,
 				95501D4219F29D7C002AEAC4 /* RayInfo.cpp in Sources */,
 				954547611A0708AE001824AA /* RaysnClass.cpp in Sources */,
+				9545476D1A0BB939001824AA /* MatrixVectorOperation.cpp in Sources */,
 				95501D4419F29D7C002AEAC4 /* Segment.cpp in Sources */,
 				95501D4819F29D7C002AEAC4 /* SurfaceRayPoint.cpp in Sources */,
 				95501D4D19F29D7C002AEAC4 /* Region.cpp in Sources */,
 				95501D3A19F29D7C002AEAC4 /* Arc.cpp in Sources */,
 				95501D4019F29D7C002AEAC4 /* Line.cpp in Sources */,
+				952BFBD31A1DB37200F686D2 /* AssemblyType.cpp in Sources */,
 				95501D4C19F29D7C002AEAC4 /* CellSurface.cpp in Sources */,
 				95501D3E19F29D7C002AEAC4 /* Circle.cpp in Sources */,
 				95501D3C19F29D7C002AEAC4 /* CellType.cpp in Sources */,
@@ -325,7 +361,10 @@
 				95501D4F19F29D7C002AEAC4 /* CrossSection.cpp in Sources */,
 				95501D4A19F29D7C002AEAC4 /* Assembly.cpp in Sources */,
 				95501D4E19F29D7C002AEAC4 /* SubRegion.cpp in Sources */,
+				95F877821A1F33A90027C43B /* BoundaryCondition.cpp in Sources */,
 				95501D4B19F29D7C002AEAC4 /* Cell.cpp in Sources */,
+				952234DF1A19B90900748DB0 /* C5G7Library.cpp in Sources */,
+				952BFBD61A1DC5A700F686D2 /* C5G7Problem.cpp in Sources */,
 				95501D3B19F29D7C002AEAC4 /* AzimuthalAngle.cpp in Sources */,
 				95501D4619F29D7C002AEAC4 /* SubRegionType.cpp in Sources */,
 				95501D5019F29D7C002AEAC4 /* XSLibrary.cpp in Sources */,

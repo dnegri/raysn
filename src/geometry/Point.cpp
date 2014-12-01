@@ -26,7 +26,7 @@ double Point::norm() const {
 	return sqrt(pow(x,2.0) + pow(y,2.0));
 }
 
-double Point::getValue(int inews) {
+double Point::getValue(int inews) const {
 	
 	double value = 0.0;
 	

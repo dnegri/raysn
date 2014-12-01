@@ -34,11 +34,11 @@ public:
 		return edges;
 	}
 
-	RegionType& getRegion() {
+	const RegionType& getRegion() const {
 		return region;
 	}
 
-	double getVolume() {
+	double getVolume() const {
 		return volume;
 	}
 
@@ -50,7 +50,7 @@ public:
 		this->segmentVolume += segmentVolume;
 	}
 
-	double getSegmentFactor() {
+	double getSegmentFactor() const {
 		return volume / segmentVolume;
 	}
 

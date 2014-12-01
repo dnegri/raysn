@@ -11,11 +11,13 @@
 
 FuelCellType::FuelCellType(const double width, const int nRings,
 						   const std::vector<int>& nSubRings,
-						   const std::vector<double>& radiuses) : CellType(width, width) {
+						   const std::vector<double>& radiuses,
+						   const std::vector<std::string>& xsNames) : CellType(width, width) {
 	this->width		= width;
 	this->nRings	= nRings;
 	this->nSubRings = nSubRings;
 	this->radiuses	= radiuses;
+	this->xsNames   = xsNames;
 
 	rwidth	= 1. / width;
 	hwidth	= width * 0.5;
@@ -279,6 +281,8 @@ void FuelCellType::initRegions() {
 		double		 volume = PI * pow(radius, 2);
 
 		RegionType * region = new RegionType();
+		region->setXSName(xsNames.at(ir));
+		
 		regions.push_back(region);
 
 		region->setIndex(ir);
@@ -310,6 +314,7 @@ void FuelCellType::initRegions() {
 
 	RegionType * region = new RegionType();
 	regions.push_back(region);
+	region->setXSName(xsNames.at(nCircles));
 
 	region->setIndex(nCircles);
 	region->setVolume(prevVolume);
@@ -412,7 +417,7 @@ void FuelCellType::initSurfaceRays() {
 															  surface.getDirection(islope).y, cross, length);
 
 						if (crossed) {
-							SurfaceRayPoint& endPoint = destination.findPoint(ia, cross.getValue(destination.getNEWS()));
+							const SurfaceRayPoint& endPoint = destination.findPoint(ia, cross.getValue(destination.getNEWS()));
 
 	//						logger.debug("Surface End Point Check: (%f, %f) (%f, %f)", cross.getX(), cross.getY(), endPoint.getX(), endPoint.getY());
 
@@ -439,7 +444,7 @@ void FuelCellType::initSegments(SurfaceRayPoint& point, int islope,
 	SubRegionType* sub = &point.getSubRegion();
 
 	Point	start	 = point;
-	Line*	startLine = &point.getSubRegionSurface();
+	const Line*	startLine = &point.getSubRegionSurface();
 	CellTypeSurface& surface = point.getSurface();
 	
 
@@ -507,7 +512,7 @@ void FuelCellType::fixSegment() {
 			
 				for (int islope = 0; islope < NSLOPE; islope++) {
 					for(Segment segment : point.getRay(islope).getSegments()) {
-						SubRegionType& subRegionType = segment.getSubRegion();
+						const SubRegionType& subRegionType = segment.getSubRegion();
 						double factor = subRegionType.getSegmentFactor();
 						segment.setLength(segment.getLength()*factor);
 					}

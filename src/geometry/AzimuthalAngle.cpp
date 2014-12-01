@@ -61,3 +61,15 @@ void AzimuthalAngle::setWeight(double weight) {
 }
 
 
+double AzimuthalAngle::getReciprocalSinCos(int inews) const {
+	int dirxy = NEWS2XY[inews];
+	
+	switch(dirxy) {
+	case DIRX:
+		return 1./getCosine();
+		break;
+	default:
+		return 1./getSine();
+		break;
+	}
+}

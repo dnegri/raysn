@@ -16,6 +16,7 @@
 class RegionType  : public RaysnClass {
 
 private:
+	std::string						 xsName;
 	int								 index;
 	double							 volume;
 	boost::ptr_vector<SubRegionType> subRegions;
@@ -26,11 +27,15 @@ public:
 
 	void addSubRegion(SubRegionType* region);
 
+	const boost::ptr_vector<SubRegionType>& getSubRegions() const {
+		return subRegions;
+	}
+
 	boost::ptr_vector<SubRegionType>& getSubRegions() {
 		return subRegions;
 	}
 
-	double getVolume() {
+	double getVolume() const {
 		return volume;
 	}
 
@@ -45,6 +50,15 @@ public:
 	void setIndex(int index) {
 		this->index = index;
 	}
+	
+	void setXSName(const std::string xsName) {
+		this->xsName = xsName;
+	}
+	
+	const std::string& getXSName() const {
+		return this->xsName;
+	}
+	
 };
 
 

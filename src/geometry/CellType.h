@@ -40,15 +40,15 @@ public:
 	virtual void construct(RayInfo& ri) = 0;
 	virtual void fixSegment() = 0;
 
-	boost::ptr_vector<AzimuthalAngle>& getAngles() {
+	const boost::ptr_vector<AzimuthalAngle>& getAngles() const {
 		return angles;
 	}
 
-	boost::ptr_vector<RegionType>& getRegions() {
+	const boost::ptr_vector<RegionType>& getRegions() const {
 		return regions;
 	}
 
-	double getVolume() {
+	double getVolume() const {
 		return volume;
 	}
 
@@ -56,15 +56,15 @@ public:
 		this->volume = volume;
 	}
 	
-	CellTypeSurface& getSurface(int inews) {
+	const CellTypeSurface& getSurface(int inews) const {
 		return surfaces.at(inews);
 	}
 	
-	double getXSize() {
+	double getXSize() const {
 		return xsize;
 	}
 	
-	double getYSize() {
+	double getYSize() const {
 		return ysize;
 	}
 	

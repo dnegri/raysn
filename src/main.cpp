@@ -14,6 +14,8 @@
 #include "log4cpp/PatternLayout.hh"
 #include "gnuplot-iostream.h"
 #include "solution/Problem.h"
+#include "solution/C5G7Problem.h"
+
 
 using namespace log4cpp;
 
@@ -27,14 +29,16 @@ int main(int argc, const char* argv[]) {
 
 	Category& root = Category::getRoot();
 
-	root.setPriority(log4cpp::Priority::DEBUG);
+	root.setPriority(log4cpp::Priority::INFO);
 	root.addAppender(appender);
 	
-	Problem problem;
-	problem.initialize();
-	problem.solve();
+	Problem* problem = new C5G7Problem();
+	problem->initialize();
+	problem->solve();
 
 	pause();
 
+	delete problem;
+	
 	return 0;
 }

@@ -17,7 +17,7 @@ class SurfaceRay {
 private:
 	double					   length;
 	boost::ptr_vector<Segment> segments;
-	SurfaceRayPoint* 		   endPoint;
+	const SurfaceRayPoint* 		endPoint;
 
 public:
 	SurfaceRay();
@@ -31,15 +31,15 @@ public:
 		this->length = length;
 	}
 
-	boost::ptr_vector<Segment>& getSegments() {
+	const boost::ptr_vector<Segment>& getSegments() const {
 		return segments;
 	}
 
-	SurfaceRayPoint& getEndPoint() {
+	const SurfaceRayPoint& getEndPoint() const {
 		return *endPoint;
 	}
 
-	void setEndPoint(SurfaceRayPoint& point) {
+	void setEndPoint(const SurfaceRayPoint& point) {
 		endPoint = &point;
 	}
 

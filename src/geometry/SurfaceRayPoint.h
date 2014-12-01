@@ -28,15 +28,24 @@ public:
 	SurfaceRayPoint(CellTypeSurface& surface);
 	virtual ~SurfaceRayPoint();
 	
+	const SurfaceRay& getRay(int islope) const {
+		return ray[islope];
+	}
+	
 	SurfaceRay& getRay(int islope) {
 		return ray[islope];
 	}
 
+
+	const CellTypeSurface& getSurface() const {
+		return *surface;
+	}
+	
 	CellTypeSurface& getSurface() {
 		return *surface;
 	}
 	
-	Line& getSubRegionSurface() const {
+	const Line& getSubRegionSurface() const {
 		return *subRegionSurface;
 	}
 
@@ -44,7 +53,11 @@ public:
 		this->subRegionSurface = &subRegionSurface;
 	}
 
-	SubRegionType& getSubRegion() const {
+	const SubRegionType& getSubRegion() const {
+		return *subRegion;
+	}
+	
+	SubRegionType& getSubRegion() {
 		return *subRegion;
 	}
 
@@ -52,7 +65,7 @@ public:
 		this->subRegion = &subRegion;
 	}
 	
-	int getIndex() {
+	int getIndex() const {
 		return index;
 	}
 	

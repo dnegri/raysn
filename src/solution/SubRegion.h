@@ -13,13 +13,13 @@
 
 class SubRegion  : public RaysnClass {
 private:
-	SubRegionType* type;
+	const SubRegionType* type;
 	double *	   flux;
 	double *	   source;
 	double		   fissionSource;
 
 public:
-	SubRegion(int energyGroup, SubRegionType& type);
+	SubRegion(int energyGroup, const SubRegionType& type);
 	virtual ~SubRegion();
 
 	void   calculateSource(const CrossSection& xs, int group, double eigv);
@@ -41,6 +41,12 @@ public:
 	double getSource(int group) {
 		return source[group];
 	}
+	
+	const SubRegionType& getType() const {
+		return *type;
+	}
+	
+	void showResult();
 
 };
 

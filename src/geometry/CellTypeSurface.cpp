@@ -56,20 +56,25 @@ CellTypeSurface::CellTypeSurface(int nAngles, int inews, double length) {
 }
 
 CellTypeSurface::~CellTypeSurface() {
-	// TODO Auto-generated destructor stub
+
 }
 
 
-boost::ptr_vector<SurfaceRayPoint>& CellTypeSurface::getPoints(AzimuthalAngle& angle) {
+const boost::ptr_vector<SurfaceRayPoint>& CellTypeSurface::getPoints(const AzimuthalAngle& angle) const {
 	return surfacePoints.at(angle.getIndex());
 }
 
-void CellTypeSurface::addPoint(AzimuthalAngle& angle, SurfaceRayPoint& point) {
+boost::ptr_vector<SurfaceRayPoint>& CellTypeSurface::getPoints(const AzimuthalAngle& angle) {
+	return surfacePoints.at(angle.getIndex());
+}
+
+
+void CellTypeSurface::addPoint(const AzimuthalAngle& angle, SurfaceRayPoint& point) {
 	point.setIndex((int) surfacePoints.at(angle.getIndex()).size());
 	surfacePoints.at(angle.getIndex()).push_back(&point);
 }
 
-SurfaceRayPoint& CellTypeSurface::findPoint(AzimuthalAngle& angle, double point) {
+const SurfaceRayPoint& CellTypeSurface::findPoint(const AzimuthalAngle& angle, double point) const {
 
 	int nPoints = (int) surfacePoints.at(angle.getIndex()).size();
 	double delta = length / nPoints;
@@ -78,4 +83,17 @@ SurfaceRayPoint& CellTypeSurface::findPoint(AzimuthalAngle& angle, double point)
 
 	return surfacePoints.at(angle.getIndex()).at(index);
 }
+
+int CellTypeSurface::getNumberOfAngles() const {
+	return surfacePoints.size();
+}
+
+int CellTypeSurface::getNumberOfPoints(AzimuthalAngle& angle) const {
+	return surfacePoints.at(angle.getIndex()).size();
+}
+
+int CellTypeSurface::getNumberOfPoints(int indexOfAngle) const {
+	return surfacePoints.at(indexOfAngle).size();
+}
+
 

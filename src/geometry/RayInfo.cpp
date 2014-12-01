@@ -10,11 +10,11 @@
 
 
 RayInfo::RayInfo() {
-	RayInfo(0,0,0);
+	RayInfo(0,0);
 }
 
-RayInfo::RayInfo(int nAziAngles, int nAziAnglesX2, double raySpace) :
-	nAziAngles(nAziAngles), nAziAnglesX2(nAziAnglesX2), raySpace(raySpace) {
+RayInfo::RayInfo(int nAziAngles, double raySpace) :
+	nAziAngles(nAziAngles), raySpace(raySpace) {
 
 }
 
@@ -27,14 +27,6 @@ int RayInfo::getAziAngles() const {
 
 void RayInfo::setAziAngles(int aziAngles) {
 	nAziAngles = aziAngles;
-}
-
-int RayInfo::getAziAnglesX2() const {
-	return nAziAnglesX2;
-}
-
-void RayInfo::setAziAnglesX2(int aziAnglesX2) {
-	nAziAnglesX2 = aziAnglesX2;
 }
 
 double RayInfo::getRaySpace() const {

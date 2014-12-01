@@ -19,27 +19,33 @@
 class Cell  : public RaysnClass {
 private:
 	int						  		x, y;
-	XSLibrary*				  		xsl;
-	CellType*			  			type;
+	const XSLibrary*				xsl;
+	const CellType*			  		type;
 	boost::ptr_vector<Region> 		regions;
 	boost::ptr_vector<CellSurface>  surfaces;
-	boost::ptr_vector<Cell> 		neighbor;
-
+	Cell* 							neighbor[NEWS];
+	double*							flux;
+	
 public:
 	std::vector<boost::tuple<double, double> > plotData;
 
 public:
 	Cell();
-	Cell(int x, int y, CellType& type, XSLibrary& xsl);
+	Cell(int x, int y, const CellType& type, const XSLibrary& xsl);
 	virtual ~Cell();
 
-	void   solveOuter(int nout, int nInner);
 	void   solveInner(int nInner, double reigv);
 	void   clearOneGroupFlux(int group);
 	void   makeOneGroupFlux(int group);
 	double calculateFissionSource();
 	void   updateCrossSection();
-
+	void   calculateIncomingCurrent();
+	void   calculateAverageAngularFlux();
+	void   calculateFlux();
+	bool   checkNodalBalance(double reigv);
+	void   checkShapeFunction();
+	void   generateShapeFunction();
+	void   generateFunctionalAngularFlux();
 	void setSurface(int news, CellSurface& surface) {
 		surfaces.replace(news, &surface);
 	}
@@ -48,8 +54,16 @@ public:
 		return surfaces.at(news);
 	}
 	
-	const boost::ptr_vector<Region>& getRegions() const {
+	boost::ptr_vector<Region>& getRegions() {
 		return regions;
+	}
+	
+	void setNeighbor(int inews, Cell& neighbor) {
+		this->neighbor[inews] = &neighbor;
+	}
+
+	Cell& getNeighbor(int inews) {
+		return *this->neighbor[inews];
 	}
 
 	int getX() {
@@ -59,6 +73,13 @@ public:
 	int getY() {
 		return y;
 	}
+	
+	double getFlux(int ig) {
+		return flux[ig];
+	}
+	
+	
+	void showResult();
 
 };
 

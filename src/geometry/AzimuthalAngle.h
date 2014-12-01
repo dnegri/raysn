@@ -39,6 +39,7 @@ public:
 	void setAngle(double angle);
 	void setWeight(double weight);
 
+	double getReciprocalSinCos(int inews) const;
 	double getAngle() const;
 	double getCosine() const;
 	double getSine() const;
@@ -61,9 +62,10 @@ public:
 		nPointY = pointY;
 	}
 	
-	int getIndex() {
+	int getIndex() const {
 		return index;
 	}
+	
 };
 
 

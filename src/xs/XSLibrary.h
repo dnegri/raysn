@@ -11,18 +11,18 @@
 #include "CrossSection.h"
 
 class XSLibrary  : public RaysnClass {
-private:
+protected:
 	int								energyGroup;
-	boost::ptr_vector<CrossSection> crossSections;
+	boost::ptr_map<const std::string, CrossSection> crossSections;
 
 public:
 	XSLibrary();
 	virtual ~XSLibrary();
 
-	void initialize();
+	virtual void initialize();
 
-	CrossSection& getCrossSection(int index) {
-		return crossSections.at(index);
+	const CrossSection& getCrossSection(const std::string key) const {
+		return crossSections.at(key);
 	}
 
 	int getEnergyGroup() const {

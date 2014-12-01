@@ -36,16 +36,30 @@ public:
 	CellTypeSurface(int nAngles, int inews, double length);
 	virtual ~CellTypeSurface();
 
-	boost::ptr_vector<SurfaceRayPoint>& getPoints(AzimuthalAngle& angle);
-	void								addPoint(AzimuthalAngle& angle, SurfaceRayPoint& point);
-	SurfaceRayPoint&					findPoint(AzimuthalAngle& angle, double point);
+	const boost::ptr_vector<SurfaceRayPoint>& 	getPoints(const AzimuthalAngle& angle) const ;
+	boost::ptr_vector<SurfaceRayPoint>& 		getPoints(const AzimuthalAngle& angle);
+	void										addPoint(const AzimuthalAngle& angle, SurfaceRayPoint& point);
+	const SurfaceRayPoint&						findPoint(const AzimuthalAngle& angle, double point) const;
+
+
+	int getNumberOfAngles() const ;
+	int getNumberOfPoints(AzimuthalAngle& angle) const;
+	int getNumberOfPoints(int indexOfAngle) const;
+	
+	const Direction& getDirection(int islope) const {
+		return dir[islope];
+	}
 	
 	Direction& getDirection(int islope) {
 		return dir[islope];
 	}
 	
-	int getNEWS() {
+	int getNEWS() const {
 		return inews;
+	}
+	
+	double getLength() const {
+		return length;
 	}
 	
 };

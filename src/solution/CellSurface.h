@@ -17,34 +17,85 @@ typedef boost::multi_array<std::vector<double>, 4> SurfaceAngularFlux;
 
 class CellSurface  : public RaysnClass {
 private:
+	static const int SHAPE_ORDER = 3;
+	
 	int index;
-	boost::ptr_vector<CellTypeSurface> types;
+	bool boundary;
+	double* incomingCurrent;
 	SurfaceAngularFlux* angularFlux;
-//	boost::ptr_vector<boost::ptr_vector<boost::ptr_vector<boost::ptr_vector<double*>>>> angFlux; //group, angle, point, islope, polar
+	SurfaceAngularFlux* functionalAngularFlux;
+	
+	const XSLibrary* xsl;
+	const CellTypeSurface* type;
+	
+	CellSurface* adjoint;
+	CellSurface* neighbor[LEFTRIGHT];
+	std::vector<double*> shapeFunction;
+	
+	boost::multi_array<double, 4>* averageAngularFlux;
+	boost::multi_array<std::vector<double>*, 2>* funtionalCurrents;
+	
 
 public:
 	CellSurface();
-	CellSurface(int index, CellType& type, XSLibrary& xsl, int dirxy);
+	CellSurface(const CellTypeSurface& type, const XSLibrary& xsl, bool boundary=false);
 	virtual ~CellSurface();
 
-	double getAngFlux(int igroup, AzimuthalAngle& angle, SurfaceRayPoint& point, int islope, int ipolar);
-	void setAngFlux(int igroup, AzimuthalAngle& angle, SurfaceRayPoint& point, int islope, int ipolar, double angFlux);
+	double getAngFluxFromFAF(int igroup, const AzimuthalAngle& angle, const SurfaceRayPoint& point, int slope, int ipolar);
+	double getAngFluxFromShapeFunction(int igroup, const AzimuthalAngle& angle, const SurfaceRayPoint& point, int slope, int ipolar);
+	double getAngFlux(int igroup, const AzimuthalAngle& angle, const SurfaceRayPoint& point, int slope, int ipolar);
+	void setAngFlux(int igroup, const AzimuthalAngle& angle, const SurfaceRayPoint& point, int slope, int ipolar, double angFlux);
 	
-	CellTypeSurface& getType(int selfneib) {
-		return types.at(selfneib);
+	void calculateAverageAngularFlux(const boost::ptr_vector<AzimuthalAngle>& angles);
+	const double* calculateIncomingCurrent(const boost::ptr_vector<AzimuthalAngle>& angles);
+	void generateFunctionalCurrent(const boost::ptr_vector<AzimuthalAngle>& angles);
+	void generateShapeFunction();
+	void generateFunctionalAngularFlux(const boost::ptr_vector<AzimuthalAngle>& angles);
+	void fitLeastSquare(const std::vector<double>& positions, const std::vector<double>& values, std::vector<double>& coeff);
+	void interpolate(std::vector<double>& lengths, std::vector<double>& values, double* coeff);
+	
+	void checkShapeFunction(const boost::ptr_vector<AzimuthalAngle>& angles);
+	
+	double getIncomingCurrent(int ig) const {
+		return incomingCurrent[ig];
 	}
-	
-	void setType(int selfneib, CellTypeSurface& type) {
-		types.replace(selfneib, &type);
-	}
-	
+
 	void setIndex(int index) {
 		this->index = index;
 	}
 	
-	int getIndex() {
+	int getIndex() const {
 		return index;
 	}
+	
+	void setBoundary(bool boundary) {
+		this->boundary = boundary;
+	}
+	
+	bool isBoundary() const {
+		return this->boundary;
+	}
+	
+	const CellTypeSurface& getType() const {
+		return *type;
+	}
+	
+	void setAdjoint(CellSurface& adjoint) {
+		this->adjoint = &adjoint;
+	}
+	
+	CellSurface& getAdjoint() {
+		return *(this->adjoint);
+	}
+	
+	void setNeighbor(int leftright, CellSurface& neighbor) {
+		this->neighbor[leftright] = &neighbor;
+	}
+
+	CellSurface& getNeighbor(int leftright) {
+		return *this->neighbor[leftright];
+	}
+	
 };
 
 #endif /* SOLUTION_CELLSURFACE_H_ */

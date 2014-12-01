@@ -11,15 +11,17 @@
 
 #include "../pch.h"
 #include "../geometry/CellType.h"
+#include "../geometry/AssemblyType.h"
 #include "../xs/XSLibrary.h"
 #include "../geometry/RayInfo.h"
 #include "Core.h"
 
 class Problem  : public RaysnClass {
-private:
-	boost::ptr_vector<CellType> cellTypes;
+protected:
+	boost::ptr_map<const std::string, CellType> cellTypes;
+	boost::ptr_map<const std::string, AssemblyType> assemblyTypes;
 	RayInfo						rayInfo;
-	XSLibrary	 				xsl;
+	XSLibrary*	 				xsl;
 	Core* 						core;
 	
 	
@@ -27,8 +29,8 @@ public:
 	Problem();
 	virtual ~Problem();
 	
-	void initialize();
-	void solve();
+	virtual void initialize();
+	virtual void solve();
 };
 
 #endif /* defined(__raysn__Problem__) */

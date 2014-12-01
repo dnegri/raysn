@@ -7,7 +7,7 @@
 
 #include "SubRegion.h"
 
-SubRegion::SubRegion(int energyGroup, SubRegionType& type) : type(&type) {
+SubRegion::SubRegion(int energyGroup, const SubRegionType& type) : type(&type) {
 
 	flux   = new double[energyGroup];
 	source = new double[energyGroup];
@@ -39,7 +39,8 @@ void SubRegion::calculateSource(const CrossSection& xs, int group, double reigv)
 	for(int ig=0; ig < xs.getEnergyGroup(); ig++) {
 		source[group] += (xs.getScattering()[group][ig]*flux[ig]);
 	}
-	source[group] -= (xs.getScattering()[group][group]*flux[group]);
+	
+//	source[group] -= (xs.getScattering()[group][group]*flux[group]);
 
 	source[group]  = source[group]/xs.getTransport()[group];
 
@@ -59,4 +60,8 @@ void SubRegion::clearOneGroupFlux(int group) {
 
 void SubRegion::makeOneGroupFlux(const CrossSection& xs, int group) {
 	flux[group] = flux[group] / (xs.getTransport()[group] * type->getVolume()) + source[group];
+}
+
+void SubRegion::showResult() {
+	logger.info("SUBREGION(%2i) FISSION SOURCE : %12.5e", type->getIndex(), fissionSource);
 }

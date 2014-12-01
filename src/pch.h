@@ -56,8 +56,8 @@ static const int	WEST  = 0;
 static const int	EAST  = 1;
 static const int	NORTH = 2;
 static const int	SOUTH = 3;
-
 static const int	NEWS = 4;
+static const int    NEWS2XY[NEWS] = {DIRX, DIRX, DIRY, DIRY};
 
 static const int	NDIVREG = 8;
 static const double RDIVREG = 1.0 / NDIVREG;

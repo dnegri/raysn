@@ -8,6 +8,7 @@
 
 #include "Problem.h"
 #include "FuelCellType.h"
+#include "../xs/C5G7Library.h"
 
 Problem::Problem() {
 }
@@ -19,24 +20,43 @@ Problem::~Problem() {
 
 
 void Problem::initialize() {
-	double			 width	= 1.28776;
+
+	xsl = new C5G7Library();
+	xsl->initialize();
+	
+	double			 width	= 1.26;
 	int				 nRings = 1;
 
 	std::vector<int> nSubRings;
 	nSubRings.push_back(1);
 
 	std::vector<double> radiuses;
-	radiuses.push_back(0.41275);
+	radiuses.push_back(0.54);
 
-	xsl.initialize();
 
-	RayInfo rayInfo(4, 8, 0.2);
+	RayInfo rayInfo(4, 0.02);
 	
-	FuelCellType* fct = new FuelCellType(width, nRings, nSubRings, radiuses);
+	std::vector<std::string> uo2XSNames;
+	std::vector<std::string> moxXSNames;
 	
-	fct->construct(rayInfo);
+	uo2XSNames.push_back("MOD");
+	uo2XSNames.push_back("UO2");
 
-	this->cellTypes.push_back(fct);
+	moxXSNames.push_back("MOD");
+	moxXSNames.push_back("MOX87");
+	moxXSNames.push_back("MOX70");
+	moxXSNames.push_back("MOX43");
+	
+	FuelCellType* uo2CellType = new FuelCellType(width, nRings, nSubRings, radiuses, uo2XSNames);
+	FuelCellType* moxCellType = new FuelCellType(width, nRings, nSubRings, radiuses, moxXSNames);
+	
+	uo2CellType->construct(rayInfo);
+	moxCellType->construct(rayInfo);
+
+	this->cellTypes.insert("UO2",uo2CellType);
+	this->cellTypes.insert("MOX",moxCellType);
+	
+	
 
 //	gnuplotio::Gnuplot gp;
 //
@@ -51,10 +71,14 @@ void Problem::initialize() {
 	
 	rowa.push_back(1);
 	
-	core = new Core(1,1, rowa);
-	
-	core->construct(cellTypes, xsl);
+//	core = new Core(1,1, rowa);
+//	
+//	core->construct(cellTypes, *xsl);
 }
+
+
+
+
 
 void Problem::solve() {
 	core->updateCrossSection();

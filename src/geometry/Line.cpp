@@ -19,11 +19,11 @@ Line::~Line() {
 
 }
 
-void Line::setBeginPoint(Point& beginPoint) {
+void Line::setBeginPoint(const Point& beginPoint) {
 	this->beginPoint = &beginPoint;
 }
 
-void Line::setEndPoint(Point& endPoint) {
+void Line::setEndPoint(const Point& endPoint) {
 	this->endPoint = &endPoint;
 }
 
